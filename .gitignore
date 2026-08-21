@@ -5,8 +5,8 @@
 a.out.dSYM/
 a.out
 .vscode/
-/compile.sh
-*/.pch
+compile.sh
+*.pch
 draft.txt
 # Editor-based HTTP Client requests
 /httpRequests/
