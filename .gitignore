@@ -1,6 +1,16 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+/.idea
+/a.out.dSYM
+/a.out
+/.vscode
+/compile.sh
+/CorrectIO.h.pch
+/draft.txt
+/EquationTools.h.pch
+/SquareCalc.h.pch
+/SquareEquationSolver.h.pch
 # Editor-based HTTP Client requests
 /httpRequests/
 # Ignored default folder with query files
