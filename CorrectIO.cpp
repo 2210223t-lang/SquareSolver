@@ -87,7 +87,8 @@ void Output( double* x1, double* x2, int* RootQuantity ) {
             break;
 
         case TWOROOTS : /* 2 roots */
-            printf( " 2 roots\n x1 = %lf\n x2 = %lf\n", *x1, *x2 );
+
+            printf( GRN " 2 roots\n x1 = %lf\n x2 = %lf\n" reset, *x1, *x2 );
             break;
 
         default:
