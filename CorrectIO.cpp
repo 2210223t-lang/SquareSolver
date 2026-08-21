@@ -4,7 +4,7 @@
 
 #include "Colours.h"
 
-enum RootAmount{ INFINITYROOTS = -1, NOROOTS = 0, ONEROOT = 1, TWOROOTS = 2 };
+enum RootAmount{ INFINITY_ROOTS = -1, NO_ROOTS = 0, ONE_ROOT = 1, TWO_ROOTS = 2 };
 
 void Swap ( double* a, double* b ) {
     double c = *a;
@@ -74,20 +74,19 @@ void Output( double* x1, double* x2, int* RootQuantity ) {
     assert( RootQuantity );
 
     switch ( *RootQuantity ) {
-        case INFINITYROOTS : /* infinity roots */
+        case INFINITY_ROOTS : /* infinity roots */
             printf( RED "too many roots\n" reset );
             break;
 
-        case NOROOTS : /* no roots */
-            printf( "0 roots\n" );
+        case NO_ROOTS : /* no roots */
+            printf( YEL "0 roots\n" reset );
             break;
 
-        case ONEROOT : /* 1 root */
-            printf( "1 root\n x1 = %lf\n", *x1 );
+        case ONE_ROOT : /* 1 root */
+            printf( GRN "1 root\n x1 = %lf\n" reset, *x1 );
             break;
 
-        case TWOROOTS : /* 2 roots */
-
+        case TWO_ROOTS : /* 2 roots */
             printf( GRN " 2 roots\n x1 = %lf\n x2 = %lf\n" reset, *x1, *x2 );
             break;
 
