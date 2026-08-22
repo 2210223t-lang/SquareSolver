@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <math.h>
 
-#include "EquationTools.h"
+#include "FuncSolver.h"
 #include "CorrectIO.h"
 
 void SquareEquationSolver( FILE* IStream ) {
@@ -10,7 +10,7 @@ void SquareEquationSolver( FILE* IStream ) {
 
     double a = NAN, b = NAN, c = NAN;
     double x1 = NAN, x2 = NAN;
-    int RootCount = -2;
+    int RootCount = 0;
     bool KeepGoing = false;
 
 

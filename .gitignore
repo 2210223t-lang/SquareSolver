@@ -7,7 +7,7 @@ a.out
 .vscode/
 compile.sh
 *.pch
-draft.txt
+*.txt
 # Editor-based HTTP Client requests
 /httpRequests/
 # Ignored default folder with query files

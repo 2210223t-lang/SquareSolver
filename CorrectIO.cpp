@@ -60,12 +60,7 @@ bool Input( FILE* IStream, double* a, double* b, double* c ) {
         *c = GetDouble( IStream, &CountOfMistakes );
     }
 
-    if ( isnan( *c ) ) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    return ( isnan( *c ) ) ? false : true;
 }
 
 void Output( double* x1, double* x2, int* RootQuantity ) {

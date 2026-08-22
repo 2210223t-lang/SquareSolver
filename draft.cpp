@@ -1,12 +1,17 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
+
 
 int main(int argc, char* argv[]){
-    // char c[8] = "\e[1;33m";
-    // while( ( c = getchar() ) != '\n' ) putchar(c);
-    printf("\e[1;33m");
-    putchar('a');
-    printf(" \e[0m");
-    // printf("\e[0m");
+    char c[8];
+    char temp = 0;
+    int i = 0;
+    scanf( "%s", c );
+
+    if ( !strcmp( c, "1234567" ) ) {
+        printf( " yes " );
+    }
+
     return 0;
 }
