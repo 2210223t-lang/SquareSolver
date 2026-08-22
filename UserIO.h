@@ -2,7 +2,7 @@
 #define TRIAL_INITIALIZE_H
 #include <stdio.h>
 
-bool Input( FILE* IStream, double* a, double* b, double* c );
+bool UserInput( FILE* IStream, double* a, double* b, double* c );
 
 void Output( double* x1, double* x2, int* RootCount );
 

@@ -2,10 +2,7 @@
 #include <assert.h>
 #include <math.h>
 
-#include "Colours.h"
-
-enum RootAmount{ INFINITY_ROOTS = -1, NO_ROOTS = 0, ONE_ROOT = 1, TWO_ROOTS = 2 };
-
+#include "Tools.h"
 
 double GetDouble( FILE* IStream, int* CountOfMistakes ) {
     assert( CountOfMistakes );
@@ -34,7 +31,7 @@ double GetDouble( FILE* IStream, int* CountOfMistakes ) {
     return Value;
 }
 
-bool Input( FILE* IStream, double* a, double* b, double* c ) {
+bool UserInput( FILE* IStream, double* a, double* b, double* c ) {
     assert( a );
     assert( b );
     assert( c );

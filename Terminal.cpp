@@ -1,14 +1,14 @@
 #include <string.h>
 #include <stdio.h>
 
-enum Modes{ TERMINAL_INPUT_ERROR = -1, AUTO_TEST = 0, MANUAL_TEST = 1, USER_INPUT = 2 };
+#include "Tools.h"
 
 
 int TerminalCommands( int argc, char* argv[], FILE* InputStream) {
 
     if ( argc > 1 ) {
 
-        if ( !strcmp( argv[ 1 ], "autotest") ) {
+        if ( !strcmp( argv[ 1 ], "autotest" ) ) {
 
             return AUTO_TEST;
 
@@ -25,7 +25,7 @@ int TerminalCommands( int argc, char* argv[], FILE* InputStream) {
                 return MANUAL_TEST;
 
         }
-        else if ( !strcmp( argv[ 1 ], "userinp" ) ) {
+        else if ( !strcmp( argv[ 1 ], "usermode" ) ) {
 
             if ( argc > 2 ) {
 
@@ -34,7 +34,7 @@ int TerminalCommands( int argc, char* argv[], FILE* InputStream) {
 
             }
 
-            return MANUAL_TEST;
+            return USER_MODE;
 
         }
         else {
@@ -45,6 +45,6 @@ int TerminalCommands( int argc, char* argv[], FILE* InputStream) {
 
     }
 
-    return USER_INPUT;
+    return USER_MODE;
 
 }

@@ -1,28 +1,34 @@
 #include <stdio.h>
-#include <ctype.h>
-#include <string.h>
 
-#include "Colours.h"
-#include "SquareEquationSolver.h"
+#include "Tools.h"
+#include "Modes.h"
 #include "Terminal.h"
+
 
 int TerminalCommands( int argc, char* argv[], FILE* InputStream );
 
 
 int main( int argc, char* argv[] ) {
-    char Repeat = 'y';
+
     FILE* InputStream = stdin;
     int CompilingMode = 0;
 
     CompilingMode = TerminalCommands( argc, argv, InputStream );
 
-    while ( tolower( Repeat ) == 'y' ) {
+    switch ( CompilingMode ) {
 
-        SquareEquationSolver( InputStream );
+        case USER_MODE :
+            UserCalc( InputStream );
+            break;
 
-        printf( "Do you want to calculate again?\n(y/n)\n" );
+        case AUTO_TEST :
+            AutoTest();
+            break;
 
-        scanf( "%c", &Repeat );
+        default:
+            printf( RED "ERROR, run code again." reset );
+            break;
+
 
     }
 

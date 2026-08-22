@@ -2,6 +2,10 @@
 #define TRIAL_SQUARECALC_H
 #include <stdio.h>
 
-int SquareEquationSolver( FILE* IStream );
+int UserCalc( FILE* InputStream );
+
+int AutoTest( void );
+
+int ManTest( FILE* InputStream);
 
 #endif //TRIAL_SQUARECALC_H
