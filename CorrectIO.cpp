@@ -6,11 +6,6 @@
 
 enum RootAmount{ INFINITY_ROOTS = -1, NO_ROOTS = 0, ONE_ROOT = 1, TWO_ROOTS = 2 };
 
-void Swap ( double* a, double* b ) {
-    double c = *a;
-    *a = *b;
-    *b = c;
-}
 
 double GetDouble( FILE* IStream, int* CountOfMistakes ) {
     assert( CountOfMistakes );
@@ -32,7 +27,7 @@ double GetDouble( FILE* IStream, int* CountOfMistakes ) {
                 Ch = getc( IStream );
             }
             else {
-                printf( "\" is not a number, too many attempts\n" reset);
+                printf( "\" is not a number, too many attempts\n" reset );
                 return NAN;
             }
         }

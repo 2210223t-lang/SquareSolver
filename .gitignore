@@ -8,6 +8,7 @@ a.out
 compile.sh
 *.pch
 *.txt
+draft.cpp
 # Editor-based HTTP Client requests
 /httpRequests/
 # Ignored default folder with query files

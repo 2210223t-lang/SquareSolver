@@ -5,7 +5,7 @@
 #include "FuncSolver.h"
 #include "CorrectIO.h"
 
-void SquareEquationSolver( FILE* IStream ) {
+void SquareEquationSolver( FILE* IStream, int mode ) {
     assert( IStream );
 
     double a = NAN, b = NAN, c = NAN;
@@ -13,14 +13,19 @@ void SquareEquationSolver( FILE* IStream ) {
     int RootCount = 0;
     bool KeepGoing = false;
 
+    if ( mode == 2 ) {
 
-    KeepGoing = Input( IStream, &a, &b, &c );
+        KeepGoing = Input( IStream, &a, &b, &c );
 
-    if ( KeepGoing == true ) {
+        if ( KeepGoing == true ) {
 
-        RootCount = SquareSl( a, b, c, &x1, &x2 );
+            RootCount = SquareSl( a, b, c, &x1, &x2 );
 
-        Output( &x1, &x2, &RootCount );
+            Output( &x1, &x2, &RootCount );
+
+        }
+
     }
+
 
 }
