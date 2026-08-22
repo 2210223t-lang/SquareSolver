@@ -6,22 +6,69 @@
 #include "FuncSolver.h"
 #include "UserIO.h"
 #include "Tools.h"
+#include "Colours.h"
 
+struct Keys {
 
-struct TestingSet {
-
-    double a;
-    double b;
-    double c;
     double x1exp;
     double x2exp;
     int RootAmountexp;
-
 };
 
+int GetEquation( struct Equation* Equ, FILE* *InputStream ) {
+    assert( Equ );
+    assert( *InputStream );
 
-void UserCalc( FILE* IStream) {
-    assert( IStream );
+    Equ->x1 = NAN;
+    Equ->x2 = NAN;
+
+    if ( EOF == fscanf( *InputStream, "%lf", &( Equ->a ) ) ||
+         EOF == fscanf( *InputStream, "%lf", &( Equ->b ) ) ||
+         EOF == fscanf( *InputStream, "%lf", &( Equ->c ) ) ) {
+
+        return EOF;
+    }
+
+    return 0;
+}
+
+int GetAnswers( struct Keys* Ans, FILE* *InputStream ) {
+    assert( Ans );
+    assert( InputStream );
+
+    if ( EOF == fscanf( *InputStream, "%lf", &( Ans->x1exp ) ) ||
+         EOF == fscanf( *InputStream, "%lf", &( Ans->x2exp ) ) ||
+         EOF == fscanf( *InputStream, "%d", &( Ans->RootAmountexp ) ) ) {
+
+        return EOF;
+    }
+
+    return 0;
+}
+
+
+int Check ( struct Equation* Test, struct Keys* Answers ) {
+    assert( Test );
+    assert( Answers );
+
+    int RootAmount = SquareSl( Test->a, Test->b, Test->c, &( Test->x1 ), &( Test->x2 ) );
+
+    if ( !EqualsDouble( Answers->x1exp, Test->x1 ) || !EqualsDouble( Answers->x2exp, Test->x2 ) ||
+         ( Answers->RootAmountexp != RootAmount ) ) {
+
+        printf( RED "ERROR: a = %lf, b = %lf, c = %lf\n"
+                    "Expected: x1 = %lf, x2 = %lf, RootAmount = %d\n"
+                    "Result:   x1 = %lf, x2 = %lf, RootAmount = %d\n" reset,
+                    Test->a, Test->b, Test->c, Answers->x1exp, Answers->x1exp,
+                    Answers->RootAmountexp, Test->x1, Test->x2, RootAmount );
+        return 1;
+    }
+
+    return 0;
+}
+
+void UserCalc( FILE* *InputStream) {
+    assert( InputStream );
 
     double a = NAN, b = NAN, c = NAN;
     double x1 = NAN, x2 = NAN;
@@ -30,52 +77,61 @@ void UserCalc( FILE* IStream) {
     char Repeat = 'y';
 
     while ( Repeat == 'y' ) {
-        KeepGoing = UserInput( IStream, &a, &b, &c );
+        KeepGoing = UserInput( *InputStream, &a, &b, &c );
 
         if ( KeepGoing == true ) {
             RootCount = SquareSl( a, b, c, &x1, &x2 );
             Output( &x1, &x2, &RootCount );
 
         }
-
         printf( "Do you want to calculate again?\n(" GRN "y" reset "/" RED "n" reset ")\n" );
         scanf( "%c", &Repeat );
+
     }
 
 }
 
-int AutoTest(){
-    struct TestingSet TestData[] = { {  1.0,  2.0,   1.0,       -1.0,       NAN,       ONE_ROOT },
-                                     {  2.0,  2.0,   2.0,        NAN,       NAN,       NO_ROOTS },
-                                     {  0.0,  0.0,   0.0,        NAN,       NAN, INFINITY_ROOTS },
-                                     { -1.0, 12.0, -32.0,        4.0,       8.0,      TWO_ROOTS },
-                                     {  1.0, -5.0,   6.0,        2.0,       3.0,      TWO_ROOTS },
-                                     {  1.0, -4.0,   4.0,        2.0,       NAN,       ONE_ROOT },
-                                     {  1.0,  0.0,  -9.0, -sqrt( 9 ), sqrt( 9 ),      TWO_ROOTS },
-                                     {  1.0,  4.0,   0.0,       -4.0,       0.0,      TWO_ROOTS },
-                                     {  0.0,  3.0,  -6.0,        2.0,       NAN,       ONE_ROOT } };
-    int TestAmount = sizeof( TestData ) / ( sizeof( TestingSet ) );
+//TODO fix lower func(mb reading from file)
+int ManualTest ( FILE* *InputStream ) {
+    assert( InputStream );
 
-    int MistakeCount = 0;
-    double x1 = NAN, x2 = NAN;
-    int RootAmount = NO_ROOTS;
+    int MistakesCount = 0;
+    struct Equation Preset = { NAN, NAN, NAN, NAN, NAN };
+    struct Keys Answers = { NAN, NAN, 0 };
 
-    for ( int i = 0; i < TestAmount; i++) {
+    while ( GetEquation( &Preset, InputStream ) != EOF && GetAnswers( &Answers, InputStream ) != EOF ) {
 
-        RootAmount = SquareSl( TestData[ i ].a, TestData[ i ].b, TestData[ i ].c, &x1, &x2 );
-
-        if ( !EqualsDouble( TestData[ i ].x1exp, x1 ) || !EqualsDouble( TestData[ i ].x2exp, x2 ) ||
-             ( TestData[ i ].RootAmountexp != RootAmount ) ) {
-
-            printf( RED "ERROR: %d test: a = %lf, b = %lf, c = %lf\n"
-                        "Expected: x1 = %lf, x2 = %lf, RootAmount = %d\n"
-                        "Result:   x1 = %lf, x2 = %lf, RootAmount = %d\n" reset,
-                        i + 1, TestData[ i ].a, TestData[ i ].b, TestData[ i ].c, TestData[ i ].x1exp,
-                        TestData[ i ].x1exp, TestData[ i ].RootAmountexp, x1, x2, RootAmount );
-
-            MistakeCount++;
-        }
+        MistakesCount += Check( &Preset, &Answers );
     }
-return MistakeCount;
-}
 
+    return MistakesCount;
+ }
+
+int AutoTest( void ) {
+
+    struct Equation TestPreset[] = { {  1.0,  2.0,   1.0, NAN, NAN },
+                                     {  2.0,  2.0,   2.0, NAN, NAN },
+                                     {  0.0,  0.0,   0.0, NAN, NAN },
+                                     { -1.0, 12.0, -32.0, NAN, NAN },
+                                     {  1.0, -5.0,   6.0, NAN, NAN },
+                                     {  1.0, -4.0,   4.0, NAN, NAN },
+                                     {  1.0,  0.0,  -9.0, NAN, NAN },
+                                     {  1.0,  4.0,   0.0, NAN, NAN },
+                                     {  0.0,  3.0,  -6.0, NAN, NAN },
+                                     { 1e+7, 10.0,   0.0, NAN, NAN } };
+
+    struct Keys Answers[] = { { -1.0, NAN,       ONE_ROOT }, {   NAN, NAN,  NO_ROOTS },
+                              {  NAN, NAN, INFINITY_ROOTS }, {   4.0, 8.0, TWO_ROOTS },
+                              {  2.0, 3.0,      TWO_ROOTS }, {   2.0, NAN,  ONE_ROOT },
+                              { -3.0, 3.0,      TWO_ROOTS }, {  -4.0, 0.0, TWO_ROOTS },
+                              {  2.0, NAN,       ONE_ROOT }, { -1e-6, 0.0, TWO_ROOTS } };
+
+    int TestAmount = sizeof( TestPreset ) / sizeof( Equation );
+    int MistakesCount = 0;
+
+    for ( int i = 0; i < TestAmount; i++ ) {
+
+        MistakesCount += Check( &TestPreset[ i ], &Answers[ i ] );
+    }
+return MistakesCount;
+}

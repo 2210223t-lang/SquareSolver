@@ -3,6 +3,8 @@
 #include <math.h>
 
 #include "Tools.h"
+#include "Colours.h"
+
 
 double GetDouble( FILE* IStream, int* CountOfMistakes ) {
     assert( CountOfMistakes );

@@ -8,14 +8,13 @@ double RandDouble( void );
 bool EqualsDouble( double a, double b );
 void SwapDouble( double* a, double* b );
 
-#define BLK "\e[0;30m"
-#define RED "\e[0;31m"
-#define GRN "\e[0;32m"
-#define YEL "\e[0;33m"
-#define BLU "\e[0;34m"
-#define MAG "\e[0;35m"
-#define CYN "\e[0;36m"
-#define WHT "\e[0;37m"
-#define reset "\e[0m"
+
+struct Equation {
+    double a;
+    double b;
+    double c;
+    double x1;
+    double x2;
+};
 
 #endif //TRIAL_TOOLS_H
