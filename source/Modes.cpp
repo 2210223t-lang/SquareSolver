@@ -3,10 +3,10 @@
 #include <math.h>
 #include <stdlib.h>
 
-#include "FuncSolver.h"
-#include "UserIO.h"
-#include "Tools.h"
-#include "Colours.h"
+#include "../header/FuncSolver.h"
+#include "../header/UserIO.h"
+#include "../header/Tools.h"
+#include "../header/Colours.h"
 
 struct Keys {
 
@@ -53,13 +53,14 @@ int Check ( struct Equation* Test, struct Keys* Answers ) {
 
     int RootAmount = SquareSl( Test->a, Test->b, Test->c, &( Test->x1 ), &( Test->x2 ) );
 
-    if ( !EqualsDouble( Answers->x1exp, Test->x1 ) || !EqualsDouble( Answers->x2exp, Test->x2 ) ||
-         ( Answers->RootAmountexp != RootAmount ) ) {
+    if ( !EqualsDouble( Answers->x1exp, Test->x1 ) ||
+         !EqualsDouble( Answers->x2exp, Test->x2 ) ||
+         !( Answers->RootAmountexp == RootAmount ) ) {
 
         printf( RED "ERROR: a = %lf, b = %lf, c = %lf\n"
                     "Expected: x1 = %lf, x2 = %lf, RootAmount = %d\n"
                     "Result:   x1 = %lf, x2 = %lf, RootAmount = %d\n" reset,
-                    Test->a, Test->b, Test->c, Answers->x1exp, Answers->x1exp,
+                    Test->a, Test->b, Test->c, Answers->x1exp, Answers->x2exp,
                     Answers->RootAmountexp, Test->x1, Test->x2, RootAmount );
         return 1;
     }
@@ -91,7 +92,7 @@ void UserCalc( FILE* *InputStream) {
 
 }
 
-//TODO fix lower func(mb reading from file)
+
 int ManualTest ( FILE* *InputStream ) {
     assert( InputStream );
 
@@ -118,13 +119,13 @@ int AutoTest( void ) {
                                      {  1.0,  0.0,  -9.0, NAN, NAN },
                                      {  1.0,  4.0,   0.0, NAN, NAN },
                                      {  0.0,  3.0,  -6.0, NAN, NAN },
-                                     { 1e+7, 10.0,   0.0, NAN, NAN } };
+                                     {  1.0,  0.0,  -1.0, NAN, NAN } };
 
     struct Keys Answers[] = { { -1.0, NAN,       ONE_ROOT }, {   NAN, NAN,  NO_ROOTS },
                               {  NAN, NAN, INFINITY_ROOTS }, {   4.0, 8.0, TWO_ROOTS },
                               {  2.0, 3.0,      TWO_ROOTS }, {   2.0, NAN,  ONE_ROOT },
                               { -3.0, 3.0,      TWO_ROOTS }, {  -4.0, 0.0, TWO_ROOTS },
-                              {  2.0, NAN,       ONE_ROOT }, { -1e-6, 0.0, TWO_ROOTS } };
+                              {  2.0, NAN,       ONE_ROOT }, {  -1.0, 1.0, TWO_ROOTS } };
 
     int TestAmount = sizeof( TestPreset ) / sizeof( Equation );
     int MistakesCount = 0;

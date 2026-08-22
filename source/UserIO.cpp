@@ -2,8 +2,8 @@
 #include <assert.h>
 #include <math.h>
 
-#include "Tools.h"
-#include "Colours.h"
+#include "../header/Tools.h"
+#include "../header/Colours.h"
 
 
 double GetDouble( FILE* IStream, int* CountOfMistakes ) {
@@ -17,9 +17,8 @@ double GetDouble( FILE* IStream, int* CountOfMistakes ) {
     while ( --( *CountOfMistakes ) >= 0 && ( Ch != '\n' || InputAmount == 0 ) ) {
             printf( "\"%c", Ch );
 
-            while ( ( Ch = getc( IStream ) ) != '\n' ) {
-                putchar( Ch );
-            }
+            while ( ( Ch = getc( IStream ) ) != '\n' ) putchar( Ch );
+
             if ( *CountOfMistakes > 0 ) {
                 printf( RED "\" is not a number, try again: " reset );
                 InputAmount = fscanf( IStream, "%le", &Value );
@@ -30,6 +29,7 @@ double GetDouble( FILE* IStream, int* CountOfMistakes ) {
                 return NAN;
             }
         }
+
     return Value;
 }
 

@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-#include "Tools.h"
-#include "Modes.h"
-#include "Terminal.h"
-#include "Colours.h"
+#include "../header/Tools.h"
+#include "../header/Modes.h"
+#include "../header/Terminal.h"
+#include "../header/Colours.h"
 
 int TerminalCommands( int argc, char* argv[], FILE* InputStream );
 

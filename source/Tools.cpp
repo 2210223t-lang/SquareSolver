@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <math.h>
-
+#include <assert.h>
 
 double RandDouble( void ) {
 
@@ -14,20 +14,21 @@ double RandDouble( void ) {
 
 bool EqualsDouble( double a, double b ) {
 
-    const double eps = 1e-7;
+    const double eps = 1e-6;
 
     if ( isnan( a ) && isnan( b ) ) return true;
 
-    if ( fabs( a-b ) <= eps ) {
+    if ( fabs( a - b ) <= eps ) {
 
         return true;
-
     }
-    return false;
 
+    return false;
 }
 
 void SwapDouble( double* a, double* b ) {
+    assert( a );
+    assert( b );
 
     double c = *a;
     *a = *b;

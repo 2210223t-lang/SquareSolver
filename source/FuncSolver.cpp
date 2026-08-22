@@ -1,7 +1,7 @@
 #include <math.h>
 #include <assert.h>
 
-#include "Tools.h"
+#include "../header/Tools.h"
 
 
 int LinearSl( double b, double c, double* x1 ) {

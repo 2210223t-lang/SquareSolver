@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include "Tools.h"
+#include "../header/Tools.h"
 
 
 int TerminalCommands( int argc, char* argv[], FILE* *InputStream) {
