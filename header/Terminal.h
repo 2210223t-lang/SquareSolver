@@ -2,6 +2,6 @@
 #define TRIAL_TERMINAL_H
 #include <stdio.h>
 
-int TerminalCommands( int argc, char* argv[], FILE* *InputStream);
+int TerminalCommands( int argc, char* argv[], FILE** InputStream);
 
 #endif // TRIAL_TERMINAL_H

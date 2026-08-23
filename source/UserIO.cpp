@@ -6,7 +6,8 @@
 #include "../header/Colours.h"
 
 
-double GetDouble( FILE* IStream, int* CountOfMistakes ) {
+double GetDouble( FILE* IStream, int* CountOfMistakes )
+{
     assert( CountOfMistakes );
     assert( IStream );
 
@@ -14,17 +15,20 @@ double GetDouble( FILE* IStream, int* CountOfMistakes ) {
     int InputAmount = fscanf( IStream, "%le", &Value );
     int Ch = getc( IStream );
 
-    while ( --( *CountOfMistakes ) >= 0 && ( Ch != '\n' || InputAmount == 0 ) ) {
+    while ( --( *CountOfMistakes ) >= 0 && ( Ch != '\n' || InputAmount == 0 ) )
+    {
             printf( "\"%c", Ch );
 
             while ( ( Ch = getc( IStream ) ) != '\n' ) putchar( Ch );
 
-            if ( *CountOfMistakes > 0 ) {
+            if ( *CountOfMistakes > 0 )
+            {
                 printf( RED "\" is not a number, try again: " reset );
                 InputAmount = fscanf( IStream, "%le", &Value );
                 Ch = getc( IStream );
             }
-            else {
+            else
+            {
                 printf( "\" is not a number, too many attempts\n" reset );
                 return NAN;
             }
@@ -33,7 +37,8 @@ double GetDouble( FILE* IStream, int* CountOfMistakes ) {
     return Value;
 }
 
-bool UserInput( FILE* IStream, double* a, double* b, double* c ) {
+bool UserInput( FILE* IStream, double* a, double* b, double* c )
+{
     assert( a );
     assert( b );
     assert( c );
@@ -44,12 +49,14 @@ bool UserInput( FILE* IStream, double* a, double* b, double* c ) {
     printf( "Enter a: " );
     *a = GetDouble( IStream, &CountOfMistakes );
 
-    if ( !isnan( *a ) ) {
+    if ( !isnan( *a ) )
+    {
         printf( "\nEnter b: " );
         *b = GetDouble( IStream, &CountOfMistakes );
     }
 
-    if ( !isnan( *b ) ) {
+    if ( !isnan( *b ) )
+    {
         printf( "\nEnter c: " );
         *c = GetDouble( IStream, &CountOfMistakes );
     }
@@ -57,12 +64,11 @@ bool UserInput( FILE* IStream, double* a, double* b, double* c ) {
     return ( isnan( *c ) ) ? false : true;
 }
 
-void Output( double* x1, double* x2, int* RootQuantity ) {
-    assert( x1 );
-    assert( x2 );
-    assert( RootQuantity );
+void Output( double x1, double x2, int RootQuantity )
+{
 
-    switch ( *RootQuantity ) {
+    switch ( RootQuantity )
+    {
         case INFINITY_ROOTS : /* infinity roots */
             printf( RED "too many roots\n" reset );
             break;
@@ -72,15 +78,16 @@ void Output( double* x1, double* x2, int* RootQuantity ) {
             break;
 
         case ONE_ROOT : /* 1 root */
-            printf( GRN "1 root\n x1 = %lf\n" reset, *x1 );
+            printf( GRN "1 root\n x1 = %lf\n" reset, x1 );
             break;
 
         case TWO_ROOTS : /* 2 roots */
-            printf( GRN " 2 roots\n x1 = %lf\n x2 = %lf\n" reset, *x1, *x2 );
+            printf( GRN " 2 roots\n x1 = %lf\n x2 = %lf\n" reset, x1, x2 );
             break;
 
-        default:
+        default: /* ERROR */
             printf( RED "Error, unexpected amount of roots" reset );
             break;
     }
+
 }

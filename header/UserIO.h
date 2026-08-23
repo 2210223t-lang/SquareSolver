@@ -4,6 +4,6 @@
 
 bool UserInput( FILE* IStream, double* a, double* b, double* c );
 
-void Output( double* x1, double* x2, int* RootCount );
+void Output( double x1, double x2, int RootCount );
 
 #endif //TRIAL_INITIALIZE_H

@@ -5,16 +5,16 @@
 #include "../header/Terminal.h"
 #include "../header/Colours.h"
 
-int TerminalCommands( int argc, char* argv[], FILE* InputStream );
 
-
-int main( int argc, char* argv[] ) {
+int main( int argc, char* argv[] )
+{
     FILE* InputStream = stdin;
     int CompilingMode = 0;
 
     CompilingMode = TerminalCommands( argc, argv, &InputStream );
-
-    switch ( CompilingMode ) {
+///TODO extract into func
+    switch ( CompilingMode )
+    {
 
         case USER_MODE :
             UserCalc( &InputStream );
@@ -32,13 +32,11 @@ int main( int argc, char* argv[] ) {
             printf( RED "ERROR, run code again." reset );
             break;
 
-
     }
 
     fclose( InputStream );
     printf( reset "end\n" );
     return 0;
-
 }
 
 

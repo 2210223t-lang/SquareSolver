@@ -9,12 +9,10 @@ bool EqualsDouble( double a, double b );
 void SwapDouble( double* a, double* b );
 
 
-struct Equation {
-    double a;
-    double b;
-    double c;
-    double x1;
-    double x2;
+struct Equation
+{
+    double a, b, c;
+    double x1, x2;
 };
 
 #endif //TRIAL_TOOLS_H
