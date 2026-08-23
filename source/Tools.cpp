@@ -1,3 +1,4 @@
+#include <cmath>
 #include <stdlib.h>
 #include <math.h>
 #include <assert.h>
@@ -37,3 +38,7 @@ void SwapDouble( double* a, double* b )
 
 }
 
+int isnanUt( double a )
+{
+    return !( a * INFINITY == INFINITY );
+}

@@ -4,7 +4,7 @@
 
 #include "../header/Tools.h"
 #include "../header/Colours.h"
-
+#include "../header/Structures.h"
 
 double GetDouble( FILE* IStream, int* CountOfMistakes )
 {
@@ -37,37 +37,35 @@ double GetDouble( FILE* IStream, int* CountOfMistakes )
     return Value;
 }
 
-bool UserInput( FILE* IStream, double* a, double* b, double* c )
+bool UserInput( FILE* IStream, struct Equation* Equ)
 {
-    assert( a );
-    assert( b );
-    assert( c );
+    assert( Equ );
     assert( IStream );
 
     int CountOfMistakes = 5;
 
     printf( "Enter a: " );
-    *a = GetDouble( IStream, &CountOfMistakes );
+    Equ->a = GetDouble( IStream, &CountOfMistakes );
 
-    if ( !isnan( *a ) )
+    if ( !isnan( Equ->a ) )
     {
         printf( "\nEnter b: " );
-        *b = GetDouble( IStream, &CountOfMistakes );
+        Equ->b = GetDouble( IStream, &CountOfMistakes );
     }
 
-    if ( !isnan( *b ) )
+    if ( !isnan( Equ->b ) )
     {
         printf( "\nEnter c: " );
-        *c = GetDouble( IStream, &CountOfMistakes );
+        Equ->c = GetDouble( IStream, &CountOfMistakes );
     }
 
-    return ( isnan( *c ) ) ? false : true;
+    return ( isnan( Equ->c ) ) ? false : true;
 }
 
-void Output( double x1, double x2, int RootQuantity )
+void Output( struct Keys CompiledRoots )
 {
 
-    switch ( RootQuantity )
+    switch ( CompiledRoots.RootAmount )
     {
         case INFINITY_ROOTS : /* infinity roots */
             printf( RED "too many roots\n" reset );
@@ -78,11 +76,11 @@ void Output( double x1, double x2, int RootQuantity )
             break;
 
         case ONE_ROOT : /* 1 root */
-            printf( GRN "1 root\n x1 = %lf\n" reset, x1 );
+            printf( GRN "1 root\nx1 = %lf\n" reset, CompiledRoots.x1 );
             break;
 
         case TWO_ROOTS : /* 2 roots */
-            printf( GRN " 2 roots\n x1 = %lf\n x2 = %lf\n" reset, x1, x2 );
+            printf( GRN " 2 roots\nx1 = %lf\n x2 = %lf\n" reset, CompiledRoots.x1, CompiledRoots.x2 );
             break;
 
         default: /* ERROR */

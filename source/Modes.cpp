@@ -7,26 +7,16 @@
 #include "../header/UserIO.h"
 #include "../header/Tools.h"
 #include "../header/Colours.h"
+#include "../header/Structures.h"
 
-
-//TODO how to write isnan( double ) without working with bytes
-struct Keys
+int GetEquation( struct Equation* Equation, FILE* InputStream )
 {
-    double x1exp, x2exp;
-    int RootAmountexp;
-};
+    assert( Equation );
+    assert( InputStream );
 
-int GetEquation( struct Equation* Equ, FILE* *InputStream )
-{
-    assert( Equ );
-    assert( *InputStream );
-
-    Equ->x1 = NAN;
-    Equ->x2 = NAN;
-//TODO fix logic
-    if ( fscanf( *InputStream, "%lf", &( Equ->a ) ) == EOF ||
-         fscanf( *InputStream, "%lf", &( Equ->b ) ) == EOF ||
-         fscanf( *InputStream, "%lf", &( Equ->c ) ) == EOF )
+    if ( fscanf( InputStream, "%lf", &( Equation->a ) ) == EOF ||
+         fscanf( InputStream, "%lf", &( Equation->b ) ) == EOF ||
+         fscanf( InputStream, "%lf", &( Equation->c ) ) == EOF )
     {
         return EOF;
     }
@@ -34,14 +24,14 @@ int GetEquation( struct Equation* Equ, FILE* *InputStream )
     return 0;
 }
 
-int GetAnswers( struct Keys* Ans, FILE* *InputStream )
+int GetKeys( struct Keys* Ans, FILE* InputStream )
 {
     assert( Ans );
     assert( InputStream );
 
-    if ( fscanf( *InputStream, "%lf", &(     Ans->x1exp     ) ) == EOF ||
-         fscanf( *InputStream, "%lf", &(     Ans->x2exp     ) ) == EOF ||
-         fscanf( *InputStream, "%d",  &( Ans->RootAmountexp ) ) == EOF )
+    if ( fscanf( InputStream, "%lf", &(     Ans->x1     ) ) == EOF ||
+         fscanf( InputStream, "%lf", &(     Ans->x2     ) ) == EOF ||
+         fscanf( InputStream, "%d",  &( Ans->RootAmount ) ) == EOF )
     {
         return EOF;
     }
@@ -50,22 +40,21 @@ int GetAnswers( struct Keys* Ans, FILE* *InputStream )
 }
 
 
-int Check ( struct Equation* Test, struct Keys* Answers )
+int CheckAnswer ( struct Equation Test, struct Keys Answers )
 {
-    assert( Test );
-    assert( Answers );
+    struct Keys CompiledRoots = { .x1 = NAN, .x2 = NAN };
 
-    int RootAmount = SquareSl( Test->a, Test->b, Test->c, &( Test->x1 ), &( Test->x2 ) );
+    CompiledRoots.RootAmount = SquareSl( Test, &CompiledRoots );
 
-    if ( !EqualsDouble( Answers->x1exp, Test->x1 ) ||
-         !EqualsDouble( Answers->x2exp, Test->x2 ) ||
-         !( Answers->RootAmountexp == RootAmount ) )
+    if ( !EqualsDouble( Answers.x1, CompiledRoots.x1 ) ||
+         !EqualsDouble( Answers.x2, CompiledRoots.x2 ) ||
+         !( Answers.RootAmount == CompiledRoots.RootAmount ) )
     {
         printf( RED "ERROR: a = %lf, b = %lf, c = %lf\n"
                     "Expected: x1 = %lf, x2 = %lf, RootAmount = %d\n"
                     "Result:   x1 = %lf, x2 = %lf, RootAmount = %d\n" reset,
-                    Test->a, Test->b, Test->c, Answers->x1exp, Answers->x2exp,
-                    Answers->RootAmountexp, Test->x1, Test->x2, RootAmount );
+                    Test.a, Test.b, Test.c, Answers.x1, Answers.x2,
+                    Answers.RootAmount, CompiledRoots.x1, CompiledRoots.x2, CompiledRoots.RootAmount );
         return 1;
     }
 
@@ -76,21 +65,19 @@ void UserCalc( FILE* InputStream)
 {
     assert( InputStream );
 
-    double a = NAN, b = NAN, c = NAN;
-    double x1 = NAN, x2 = NAN;
-    int RootCount = 0;
+    struct Equation Equ = { .a = NAN, .b = NAN, .c = NAN };
+    struct Keys CompiledRoots = { .x1 = NAN, .x2 = NAN };
     bool KeepGoing = false;
     char Repeat = 'y';
 
     while ( Repeat == 'y' )
     {
-        KeepGoing = UserInput( InputStream, &a, &b, &c );
+        KeepGoing = UserInput( InputStream, &Equ );
 
         if ( KeepGoing == true )
         {
-            RootCount = SquareSl( a, b, c, &x1, &x2 );
-            Output( x1, x2, RootCount );
-
+            CompiledRoots.RootAmount = SquareSl( Equ, &CompiledRoots );
+            Output( CompiledRoots );
         }
 
         printf( "Do you want to calculate again?\n(" GRN "y" reset "/" RED "n" reset ")\n" );
@@ -99,18 +86,17 @@ void UserCalc( FILE* InputStream)
 
 }
 
-
-int ManualTest ( FILE* *InputStream )
+int ManualTest ( FILE* InputStream )
 {
     assert( InputStream );
 
     int MistakesCount = 0;
-    struct Equation Preset = { NAN, NAN, NAN, NAN, NAN };
-    struct Keys Answers = { NAN, NAN, 0 };
+    struct Equation Preset = { .a = NAN, .b = NAN, .c = NAN };
+    struct Keys Answers = { .x1 = NAN, .x2 = NAN };
 
-    while ( GetEquation( &Preset, InputStream ) != EOF && GetAnswers( &Answers, InputStream ) != EOF )
+    while ( GetEquation( &Preset, InputStream ) != EOF && GetKeys( &Answers, InputStream ) != EOF )
     {
-        MistakesCount += Check( &Preset, &Answers );
+        MistakesCount += CheckAnswer( Preset, Answers );
     }
 
     return MistakesCount;
@@ -118,29 +104,35 @@ int ManualTest ( FILE* *InputStream )
 
 int AutoTest( void )
 {
-    struct Equation TestPreset[] = { {  .a = 1.0,  2.0,   1.0, NAN, NAN },
-                                     {  2.0,  2.0,   2.0, NAN, NAN },
-                                     {  0.0,  0.0,   0.0, NAN, NAN },
-                                     { -1.0, 12.0, -32.0, NAN, NAN },
-                                     {  1.0, -5.0,   6.0, NAN, NAN },
-                                     {  1.0, -4.0,   4.0, NAN, NAN },
-                                     {  1.0,  0.0,  -9.0, NAN, NAN },
-                                     {  1.0,  4.0,   0.0, NAN, NAN },
-                                     {  0.0,  3.0,  -6.0, NAN, NAN },
-                                     {  1.0,  0.0,  -1.0, NAN, NAN } };
+    struct Equation TestPreset[] = { { .a =  1.0, .b =  2.0, .c =   1.0 },
+                                     { .a =  2.0, .b =  2.0, .c =   2.0 },
+                                     { .a =  0.0, .b =  0.0, .c =   0.0 },
+                                     { .a = -1.0, .b = 12.0, .c = -32.0 },
+                                     { .a =  1.0, .b = -5.0, .c =   6.0 },
+                                     { .a =  1.0, .b = -4.0, .c =   4.0 },
+                                     { .a =  1.0, .b =  0.0, .c =  -9.0 },
+                                     { .a =  1.0, .b =  4.0, .c =   0.0 },
+                                     { .a =  0.0, .b =  3.0, .c =  -6.0 },
+                                     { .a =  1.0, .b =  0.0, .c =  -1.0 } };
 
-    struct Keys Answers[] = { { -1.0, NAN,       ONE_ROOT }, {   NAN, NAN,  NO_ROOTS },
-                              {  NAN, NAN, INFINITY_ROOTS }, {   4.0, 8.0, TWO_ROOTS },
-                              {  2.0, 3.0,      TWO_ROOTS }, {   2.0, NAN,  ONE_ROOT },
-                              { -3.0, 3.0,      TWO_ROOTS }, {  -4.0, 0.0, TWO_ROOTS },
-                              {  2.0, NAN,       ONE_ROOT }, {  -1.0, 1.0, TWO_ROOTS } };
+    struct Keys Answers[] = { { .x1 = -1.0, .x2 = NAN, .RootAmount =       ONE_ROOT },
+                              { .x1 =  NAN, .x2 = NAN, .RootAmount =       NO_ROOTS },
+                              { .x1 =  NAN, .x2 = NAN, .RootAmount = INFINITY_ROOTS },
+                              { .x1 =  4.0, .x2 = 8.0, .RootAmount =      TWO_ROOTS },
+                              { .x1 =  2.0, .x2 = 3.0, .RootAmount =      TWO_ROOTS },
+                              { .x1 =  2.0, .x2 = NAN, .RootAmount =       ONE_ROOT },
+                              { .x1 = -3.0, .x2 = 3.0, .RootAmount =      TWO_ROOTS },
+                              { .x1 = -4.0, .x2 = 0.0, .RootAmount =      TWO_ROOTS },
+                              { .x1 =  2.0, .x2 = NAN, .RootAmount =       ONE_ROOT },
+                              { .x1 = -1.0, .x2 = 1.0, .RootAmount =      TWO_ROOTS } };
+
 
     int TestAmount = sizeof( TestPreset ) / sizeof( Equation );
     int MistakesCount = 0;
 
     for ( int i = 0; i < TestAmount; i++ )
     {
-        MistakesCount += Check( &TestPreset[ i ], &Answers[ i ] );
+        MistakesCount += CheckAnswer( TestPreset[ i ], Answers[ i ] );
     }
     return MistakesCount;
 }

@@ -1,9 +1,13 @@
 #include <stdio.h>
+#include <assert.h>
 
 #include "../header/Tools.h"
 #include "../header/Modes.h"
 #include "../header/Terminal.h"
 #include "../header/Colours.h"
+#include "../header/AI.h"
+
+void ChoosingMode( int CompilingMode, FILE** InputStream );
 
 
 int main( int argc, char* argv[] )
@@ -12,12 +16,23 @@ int main( int argc, char* argv[] )
     int CompilingMode = 0;
 
     CompilingMode = TerminalCommands( argc, argv, &InputStream );
-///TODO extract into func
+
+    ChoosingMode( CompilingMode, &InputStream );
+
+    fclose( InputStream );
+    printf( reset "end\n" );
+    return 0;
+}
+
+void ChoosingMode( int CompilingMode, FILE* InputStream )
+{
+    assert( InputStream );
+
     switch ( CompilingMode )
     {
 
         case USER_MODE :
-            UserCalc( &InputStream );
+            UserCalc( InputStream );
             break;
 
         case AUTO_TEST :
@@ -25,7 +40,7 @@ int main( int argc, char* argv[] )
             break;
 
         case MANUAL_TEST :
-            printf( "%d", ManualTest( &InputStream ) );
+            printf( "%d", ManualTest( InputStream ) );
             break;
 
         default :
@@ -34,10 +49,4 @@ int main( int argc, char* argv[] )
 
     }
 
-    fclose( InputStream );
-    printf( reset "end\n" );
-    return 0;
 }
-
-
-

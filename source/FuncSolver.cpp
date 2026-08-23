@@ -2,7 +2,7 @@
 #include <assert.h>
 
 #include "../header/Tools.h"
-
+#include "../header/Structures.h"
 
 int LinearSl( double b, double c, double* x1 )
 {
@@ -28,39 +28,37 @@ int LinearSl( double b, double c, double* x1 )
     }
 }
 
-
-int SquareSl( double a, double b, double c, double* x1, double* x2 )
+int SquareSl( struct Equation Equ, struct Keys* CompiledRoots )
 {
-    assert( x1 );
-    assert( x2 );
+    assert( CompiledRoots );
 
-    *x1 = NAN;
-    *x2 = NAN;
+    CompiledRoots->x1 = NAN;
+    CompiledRoots->x2 = NAN;
 
-    double DisSqr = b * b - 4 * a * c;
+    double Dis = Equ.b * Equ.b - 4 * Equ.a * Equ.c;
 
-    if ( DisSqr < 0 )
+    if ( Dis < 0 )
     {
         return NO_ROOTS;
     }
-    else if ( EqualsDouble( a, 0 ) )
+    else if ( EqualsDouble( Equ.a, 0 ) )
     {
-        return LinearSl( b, c, x1 );
+        return LinearSl( Equ.b, Equ.c, &( CompiledRoots->x1 ) );
     }
     else
     {
-      double Dis = sqrt( DisSqr );
+      double DisSqrt = sqrt( Dis );
 
-        if ( EqualsDouble( DisSqr, 0 ) )
+        if ( EqualsDouble( Dis, 0 ) )
         {
-            *x1 = ( -b + Dis ) / ( 2 * a );
+            CompiledRoots->x1 = ( -( Equ.b ) + DisSqrt ) / ( 2 * ( Equ.a ) );
             return ONE_ROOT;
         }
         else
         {
-            *x1 = ( -b - Dis ) / ( 2 * a );
-            *x2 = ( -b + Dis ) / ( 2 * a );
-            if ( *x1 > *x2 ) SwapDouble( x1, x2 );
+            CompiledRoots->x1 = ( -( Equ.b ) - DisSqrt ) / ( 2 * ( Equ.a ) );
+            CompiledRoots->x2 = ( -( Equ.b ) + DisSqrt ) / ( 2 * ( Equ.a ) );
+            if ( CompiledRoots->x1 > CompiledRoots->x2 ) SwapDouble( &( CompiledRoots->x1 ), &( CompiledRoots->x2 ) );
             return TWO_ROOTS;
         }
 

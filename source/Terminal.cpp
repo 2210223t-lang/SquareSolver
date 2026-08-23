@@ -7,6 +7,7 @@
 
 int TerminalCommands( int argc, char* argv[], FILE** InputStream)
 {
+    assert ( InputStream );
     assert ( *InputStream );
 
     if ( argc > 1 )
@@ -37,6 +38,10 @@ int TerminalCommands( int argc, char* argv[], FILE** InputStream)
             }
 
             return USER_MODE;
+        }
+        else if ( !strcmp( argv[ 1 ], "AI" ) )
+        {
+        return AI_MODE;
         }
         else
         {
