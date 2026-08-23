@@ -3,6 +3,7 @@
 #include <math.h>
 #include <assert.h>
 
+
 double RandDouble( void )
 {
     int x = rand() - RAND_MAX, y = rand() - RAND_MAX;

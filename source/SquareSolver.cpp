@@ -4,7 +4,8 @@
 #include "../header/Tools.h"
 #include "../header/Structures.h"
 
-int LinearSl( double b, double c, double* x1 )
+
+int LinearSolve( double b, double c, double* x1 )
 {
     assert( x1 );
 
@@ -28,7 +29,7 @@ int LinearSl( double b, double c, double* x1 )
     }
 }
 
-int SquareSl( struct Equation Equ, struct Keys* CompiledRoots )
+int SquareSolve( struct Equation Equ, struct Keys* CompiledRoots )
 {
     assert( CompiledRoots );
 
@@ -43,7 +44,7 @@ int SquareSl( struct Equation Equ, struct Keys* CompiledRoots )
     }
     else if ( EqualsDouble( Equ.a, 0 ) )
     {
-        return LinearSl( Equ.b, Equ.c, &( CompiledRoots->x1 ) );
+        return LinearSolve( Equ.b, Equ.c, &( CompiledRoots->x1 ) );
     }
     else
     {

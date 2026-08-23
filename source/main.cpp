@@ -5,7 +5,7 @@
 #include "../header/Modes.h"
 #include "../header/Terminal.h"
 #include "../header/Colours.h"
-#include "../header/AI.h"
+//#include "../header/AI.h"
 
 void ChoosingMode( int CompilingMode, FILE** InputStream );
 
@@ -13,9 +13,7 @@ void ChoosingMode( int CompilingMode, FILE** InputStream );
 int main( int argc, char* argv[] )
 {
     FILE* InputStream = stdin;
-    int CompilingMode = 0;
-
-    CompilingMode = TerminalCommands( argc, argv, &InputStream );
+    int CompilingMode = TerminalCommands( argc, argv, &InputStream );
 
     ChoosingMode( CompilingMode, &InputStream );
 
@@ -42,6 +40,10 @@ void ChoosingMode( int CompilingMode, FILE* InputStream )
         case MANUAL_TEST :
             printf( "%d", ManualTest( InputStream ) );
             break;
+
+        // case AI_MODE :
+        //     KOTexStart();
+        //     break;
 
         default :
             printf( RED "ERROR, run code again." reset );

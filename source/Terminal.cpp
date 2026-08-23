@@ -5,7 +5,7 @@
 #include "../header/Tools.h"
 
 
-int TerminalCommands( int argc, char* argv[], FILE** InputStream)
+int TerminalCommands( int argc, char* argv[], FILE** InputStream )
 {
     assert ( InputStream );
     assert ( *InputStream );
@@ -41,7 +41,7 @@ int TerminalCommands( int argc, char* argv[], FILE** InputStream)
         }
         else if ( !strcmp( argv[ 1 ], "AI" ) )
         {
-        return AI_MODE;
+            return AI_MODE;
         }
         else
         {

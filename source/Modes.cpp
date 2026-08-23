@@ -3,11 +3,12 @@
 #include <math.h>
 #include <stdlib.h>
 
-#include "../header/FuncSolver.h"
+#include "../header/SquareSolver.h"
 #include "../header/UserIO.h"
 #include "../header/Tools.h"
 #include "../header/Colours.h"
 #include "../header/Structures.h"
+
 
 int GetEquation( struct Equation* Equation, FILE* InputStream )
 {
@@ -44,7 +45,7 @@ int CheckAnswer ( struct Equation Test, struct Keys Answers )
 {
     struct Keys CompiledRoots = { .x1 = NAN, .x2 = NAN };
 
-    CompiledRoots.RootAmount = SquareSl( Test, &CompiledRoots );
+    CompiledRoots.RootAmount = SquareSolve( Test, &CompiledRoots );
 
     if ( !EqualsDouble( Answers.x1, CompiledRoots.x1 ) ||
          !EqualsDouble( Answers.x2, CompiledRoots.x2 ) ||
@@ -76,7 +77,7 @@ void UserCalc( FILE* InputStream)
 
         if ( KeepGoing == true )
         {
-            CompiledRoots.RootAmount = SquareSl( Equ, &CompiledRoots );
+            CompiledRoots.RootAmount = SquareSolve( Equ, &CompiledRoots );
             Output( CompiledRoots );
         }
 

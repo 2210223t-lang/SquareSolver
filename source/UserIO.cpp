@@ -6,6 +6,7 @@
 #include "../header/Colours.h"
 #include "../header/Structures.h"
 
+
 double GetDouble( FILE* IStream, int* CountOfMistakes )
 {
     assert( CountOfMistakes );
@@ -42,7 +43,7 @@ bool UserInput( FILE* IStream, struct Equation* Equ)
     assert( Equ );
     assert( IStream );
 
-    int CountOfMistakes = 5;
+    int CountOfMistakes = 8;
 
     printf( "Enter a: " );
     Equ->a = GetDouble( IStream, &CountOfMistakes );
