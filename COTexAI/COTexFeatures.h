@@ -1,0 +1,6 @@
+#ifndef TRIAL_COTEXFEATURES_H
+#define TRIAL_COTEXFEATURES_H
+
+void COTexWeather( void );
+
+#endif // TRIAL_COTEXFEATURES_H

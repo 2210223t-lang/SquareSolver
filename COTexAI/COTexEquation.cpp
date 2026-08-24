@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <unistd.h>
+#include <assert.h>
 
 #include "../header/Structures.h"
 #include "../header/Colours.h"
@@ -10,31 +11,37 @@
 #include "COTexUtility.h"
 #include "../header/SquareSolver.h"
 
-//TODO add assertAI with correct phrases!
 
 void MistakesReaction( int* MistakesAmount )
 {
+    COTexAssert( MistakesAmount );
 
     switch ( *MistakesAmount )
     {
         case GOOD :
-            printf( "%s\n", GOOD_MOOD );
+            printf( "\"" );
+            PrintAI( GOOD_MOOD, HCYN );
             break;
 
         case NEUTRAL :
-            printf( "%s", NEUTRAL_MOOD );
+            printf( "\"" );
+            PrintAI( NEUTRAL_MOOD, HCYN );
             break;
 
         case ANGRY :
-            printf( "%s\n", ANGRY_MOOD );
+            printf( "\"" );
+            PrintAI( ANGRY_MOOD, HCYN );
             break;
 
         case FURY :
-            printf( "%s\n", FURY_MOOD );
+            printf( "\"" );
+            PrintAI( FURY_MOOD, HCYN );
             break;
 
         case FRIED :
-            printf( "%s\n", FRIED_MOOD );
+            printf( "\"" );
+            PrintAI( "<---I'm fried, ", HCYN );
+            PrintAI(" FUCK OUT!!!", HRED );
             Thinking( "Formatting a hard drive", 5 );
             abort();
 
@@ -132,19 +139,21 @@ int COTexEquation( void )
 
 
         CompiledRoots.RootAmount = SquareSolve( Equ, &CompiledRoots );
-        Thinking( "Calculationg Roots", 6 );
+        Thinking( "Calculating Roots", 6 );
         COTexOutput( CompiledRoots );
 
-        printf( HCYN "Do you want to calculate again?\n(" GRN "y" reset HCYN "/" RED "n" reset ")\n" );
+        printf( "Do you want to calculate again?\n(" HCYN );
+        PrintAI( "y",   GRN );
+        PrintAI( "/",  HCYN );
+        PrintAI( "n\n", RED );
         scanf( "%c", &Repeat );
         if ( Repeat != 'y' && Repeat != 'n')
         {
-            printf( MAG "You even can't enter a correct answer, "
-                    "working with equations is too complicated for you, i'm out." reset );
+            PrintAI( "You even can't enter a correct answer, "
+                     "working with equations is too complicated for you, i'm out.\n", MAG );
             Thinking( "Self-removing", 5 );
             return 0;
         }
     }
     return 1;
 }
-//TODO getopt getopt_long

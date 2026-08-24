@@ -1,54 +1,69 @@
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>
+#include <getopt.h>
+#include <stdlib.h>
 
-#include "../header/Tools.h"
+#include "../header/Modes.h"
+#include "../COTexAI/AI.h"
 
 
-int TerminalCommands( int argc, char* argv[], FILE** InputStream )
+void TerminalCommands( int argc, char* argv[] )
 {
-    assert ( InputStream );
-    assert ( *InputStream );
+    FILE* InputStream = stdin;
 
-    if ( argc > 1 )
+    struct option long_options[] = { { "COTexmode",       no_argument, 0, 'c' },
+                                     {  "autotest",       no_argument, 0, 'a' },
+                                     {   "mantest", optional_argument, 0, 'm' },
+                                     {  "usermode", optional_argument, 0, 'u' },
+                                     {      "help",       no_argument, 0, 'h' },
+                                     {           0,                 0, 0,  0  } };
+    int Command = 0;
+
+    while( ( Command = getopt_long_only( argc, argv, "cam::u::h", long_options, NULL ) ) != -1 )
     {
-
-        if ( !strcmp( argv[ 1 ], "autotest" ) )
+        switch ( Command )
         {
-            return AUTO_TEST;
-        }
-        else if ( !strcmp( argv[ 1 ], "mantest" ) )
-        {
+            case 'c' :
+                KOTexStart();
+                break;
 
-            if ( argc > 2 )
-            {
-                *InputStream = fopen( argv[ 2 ], "r" );
-                return ( InputStream ) ? MANUAL_TEST : TERMINAL_INPUT_ERROR;
-            }
+            case 'a' :
+                AutoTest();
+                break;
 
-            return MANUAL_TEST;
-        }
-        else if ( !strcmp( argv[ 1 ], "usermode" ) )
-        {
+            case 'm' :
+                InputStream = stdin;
+                if ( optarg != NULL )
+                    InputStream = fopen( optarg, "r" );
 
-            if ( argc > 2 )
-            {
-                *InputStream = fopen( argv[ 2 ], "r" );
-                return ( InputStream ) ? MANUAL_TEST : TERMINAL_INPUT_ERROR;
-            }
+                printf( "%d", ManualTest( InputStream ) );
+                break;
 
-            return USER_MODE;
-        }
-        else if ( !strcmp( argv[ 1 ], "AI" ) )
-        {
-            return AI_MODE;
-        }
-        else
-        {
-            return TERMINAL_INPUT_ERROR;
+            case 'u' :
+                InputStream = stdin;
+                if ( optarg != NULL )
+                    InputStream = fopen( optarg, "r" );
+
+                UserCalc( InputStream );
+                break;
+
+            case 'h' :
+                printf( "To start User Mode type -usermode\n"
+                        "To start Auto Test type -autotest\n"
+                        "To start Manual Test type -mantest\n"
+                        "To start AI mode type -COTexmode\n" );
+                break;
+
+            case '?' :
+                fprintf( stderr, "Incorrect command" );
+                break;
+
+            default :
+                fprintf( stderr, "Getopt error" );
+                break;
         }
 
     }
-
-    return USER_MODE;
+    fclose( InputStream );
 }
