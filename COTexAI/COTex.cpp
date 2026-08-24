@@ -8,7 +8,7 @@
 #include "../header/Colours.h"
 #include "COTexEquation.h"
 #include "COTexUtility.h"
-
+#include "COTexFeatures.h"
 
 
 void KOTexStart( void )
@@ -33,7 +33,7 @@ void KOTexStart( void )
     }
     else if ( !strcmp( Answer, "weather" ) )
     {
-        //COTexWeather();
+        COTexWeather();
     }
     else if ( !strcmp( Answer, "____" ) )
     {
@@ -47,7 +47,7 @@ void KOTexStart( void )
         printf( HRED "%d\n" reset, Token );
         Thinking( "Looking for appropriate function", 3);
         Thinking( "Loading essential libraries and extensions", 2 );
-        PrintAI( "Automaticaly running the most appropriate function of solving square equasion\n", HCYN);
+        PrintAI(  "Automaticaly running the most appropriate function of solving square equasion\n", HCYN);
         COTexEquation();
     }
     printf( reset );
