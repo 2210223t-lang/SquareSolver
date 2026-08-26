@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Square Equation: COTexAI/COTexAssert.h File Reference</title>
+<title>Square Equation: header/UserIO.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('_c_o_tex_assert_8h.html','',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_user_i_o_8h.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -108,51 +108,74 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_c_o_tex_asser
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">COTexAssert.h File Reference</div></div>
+  <div class="headertitle"><div class="title">UserIO.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_structures_8h_source.html">../header/Structures.h</a>&quot;</code><br />
 </div>
-<p><a href="_c_o_tex_assert_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="_user_i_o_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a6c3a2e5b9bbf8c0791aafe14d8d58f46" id="r_a6c3a2e5b9bbf8c0791aafe14d8d58f46"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6c3a2e5b9bbf8c0791aafe14d8d58f46">TRIAL_COTEXASSERT_H</a></td></tr>
-<tr class="memitem:a7a0e915b8e4a1dbd5d7eecfb6aa09a84" id="r_a7a0e915b8e4a1dbd5d7eecfb6aa09a84"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7a0e915b8e4a1dbd5d7eecfb6aa09a84">COTexAssert</a>(condition)</td></tr>
-<tr class="memdesc:a7a0e915b8e4a1dbd5d7eecfb6aa09a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">A custom assert with better sentences.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ac2845943c3a5636cf21a419705b3621e" id="r_ac2845943c3a5636cf21a419705b3621e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac2845943c3a5636cf21a419705b3621e">UserInput</a> (FILE *InputStream, struct <a class="el" href="struct_equation.html">Equation</a> *Equ)</td></tr>
+<tr class="memdesc:ac2845943c3a5636cf21a419705b3621e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Func which ask user to input <a class="el" href="struct_equation.html" title="Stores Equation coefficents.">Equation</a>'s coefficients.  <br /></td></tr>
+<tr class="memitem:ae6bc34cfacf2054d7d39be98ce6bf24a" id="r_ae6bc34cfacf2054d7d39be98ce6bf24a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae6bc34cfacf2054d7d39be98ce6bf24a">Output</a> (struct <a class="el" href="struct_keys.html">Keys</a> CompiledRoots)</td></tr>
+<tr class="memdesc:ae6bc34cfacf2054d7d39be98ce6bf24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints answers for an equation.  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a7a0e915b8e4a1dbd5d7eecfb6aa09a84" name="a7a0e915b8e4a1dbd5d7eecfb6aa09a84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a0e915b8e4a1dbd5d7eecfb6aa09a84">&#9670;&#160;</a></span>COTexAssert</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="ae6bc34cfacf2054d7d39be98ce6bf24a" name="ae6bc34cfacf2054d7d39be98ce6bf24a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6bc34cfacf2054d7d39be98ce6bf24a">&#9670;&#160;</a></span>Output()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define COTexAssert</td>
+          <td class="memname">void Output </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>condition</em></span></td><td>)</td>
+          <td class="paramtype">struct <a class="el" href="struct_keys.html">Keys</a></td>          <td class="paramname"><span class="paramname"><em>CompiledRoots</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A custom assert with better sentences. </p>
+<p>Prints answers for an equation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">CompiledRoots</td><td>is a struct <a class="el" href="struct_keys.html" title="Stores keys for some equation.">Keys</a>, where from it takes values for output </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a6c3a2e5b9bbf8c0791aafe14d8d58f46" name="a6c3a2e5b9bbf8c0791aafe14d8d58f46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c3a2e5b9bbf8c0791aafe14d8d58f46">&#9670;&#160;</a></span>TRIAL_COTEXASSERT_H</h2>
+<a id="ac2845943c3a5636cf21a419705b3621e" name="ac2845943c3a5636cf21a419705b3621e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2845943c3a5636cf21a419705b3621e">&#9670;&#160;</a></span>UserInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TRIAL_COTEXASSERT_H</td>
+          <td class="memname">bool UserInput </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>InputStream</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_equation.html">Equation</a> *</td>          <td class="paramname"><span class="paramname"><em>Equ</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Func which ask user to input <a class="el" href="struct_equation.html" title="Stores Equation coefficents.">Equation</a>'s coefficients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">InputStream</td><td>is a stream, where from it will take values</td></tr>
+    <tr><td class="paramname">Equ</td><td>is a pointer to a struct <a class="el" href="struct_equation.html" title="Stores Equation coefficents.">Equation</a>, where we will store coefficients </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -169,7 +192,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_9be509f229d70f38f85873aadd2b3436.html">COTexAI</a></li><li class="navelem"><a href="_c_o_tex_assert_8h.html">COTexAssert.h</a></li>
+    <li class="navelem"><a href="dir_1ec98ce50fa6ec55b40b8ffb1df38c3c.html">header</a></li><li class="navelem"><a href="_user_i_o_8h.html">UserIO.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

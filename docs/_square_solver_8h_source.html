@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Square Equation: COTexAI/COTexAssert.h File Reference</title>
+<title>Square Equation: header/SquareSolver.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('_c_o_tex_assert_8h.html','',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_square_solver_8h_source.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -108,68 +108,28 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_c_o_tex_asser
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">COTexAssert.h File Reference</div></div>
+  <div class="headertitle"><div class="title">SquareSolver.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-</div>
-<p><a href="_c_o_tex_assert_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a6c3a2e5b9bbf8c0791aafe14d8d58f46" id="r_a6c3a2e5b9bbf8c0791aafe14d8d58f46"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6c3a2e5b9bbf8c0791aafe14d8d58f46">TRIAL_COTEXASSERT_H</a></td></tr>
-<tr class="memitem:a7a0e915b8e4a1dbd5d7eecfb6aa09a84" id="r_a7a0e915b8e4a1dbd5d7eecfb6aa09a84"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7a0e915b8e4a1dbd5d7eecfb6aa09a84">COTexAssert</a>(condition)</td></tr>
-<tr class="memdesc:a7a0e915b8e4a1dbd5d7eecfb6aa09a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">A custom assert with better sentences.  <br /></td></tr>
-</table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a7a0e915b8e4a1dbd5d7eecfb6aa09a84" name="a7a0e915b8e4a1dbd5d7eecfb6aa09a84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a0e915b8e4a1dbd5d7eecfb6aa09a84">&#9670;&#160;</a></span>COTexAssert</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COTexAssert</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>condition</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A custom assert with better sentences. </p>
-
-</div>
-</div>
-<a id="a6c3a2e5b9bbf8c0791aafe14d8d58f46" name="a6c3a2e5b9bbf8c0791aafe14d8d58f46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c3a2e5b9bbf8c0791aafe14d8d58f46">&#9670;&#160;</a></span>TRIAL_COTEXASSERT_H</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TRIAL_COTEXASSERT_H</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<a href="_square_solver_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TRIAL_EQUATIONS_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TRIAL_EQUATIONS_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">int</span> <a class="code hl_function" href="_square_solver_8h.html#a40ddf01f4cc47decbe1f093694d539ae">SquareSolve</a>( <span class="keyword">struct</span> <a class="code hl_struct" href="struct_equation.html">Equation</a> Equ, <span class="keyword">struct</span> <a class="code hl_struct" href="struct_keys.html">Keys</a>* CompiledRoots );</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordtype">int</span> <a class="code hl_function" href="_square_solver_8h.html#aa21f8827e1a21c6520d2ee365f60b759">LinearSolve</a>( <span class="keywordtype">double</span> b, <span class="keywordtype">double</span> c, <span class="keywordtype">double</span>* x1 );</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif </span><span class="comment">//TRIAL_EQUATIONS_H</span></div>
+<div class="ttc" id="a_square_solver_8h_html_a40ddf01f4cc47decbe1f093694d539ae"><div class="ttname"><a href="_square_solver_8h.html#a40ddf01f4cc47decbe1f093694d539ae">SquareSolve</a></div><div class="ttdeci">int SquareSolve(struct Equation Equ, struct Keys *CompiledRoots)</div><div class="ttdoc">Solves square equation.</div><div class="ttdef"><b>Definition</b> SquareSolver.cpp:32</div></div>
+<div class="ttc" id="a_square_solver_8h_html_aa21f8827e1a21c6520d2ee365f60b759"><div class="ttname"><a href="_square_solver_8h.html#aa21f8827e1a21c6520d2ee365f60b759">LinearSolve</a></div><div class="ttdeci">int LinearSolve(double b, double c, double *x1)</div><div class="ttdoc">Solves linear equation.</div><div class="ttdef"><b>Definition</b> SquareSolver.cpp:8</div></div>
+<div class="ttc" id="astruct_equation_html"><div class="ttname"><a href="struct_equation.html">Equation</a></div><div class="ttdoc">Stores Equation coefficents.</div><div class="ttdef"><b>Definition</b> Structures.h:8</div></div>
+<div class="ttc" id="astruct_keys_html"><div class="ttname"><a href="struct_keys.html">Keys</a></div><div class="ttdoc">Stores keys for some equation.</div><div class="ttdef"><b>Definition</b> Structures.h:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_9be509f229d70f38f85873aadd2b3436.html">COTexAI</a></li><li class="navelem"><a href="_c_o_tex_assert_8h.html">COTexAssert.h</a></li>
+    <li class="navelem"><a href="dir_1ec98ce50fa6ec55b40b8ffb1df38c3c.html">header</a></li><li class="navelem"><a href="_square_solver_8h.html">SquareSolver.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

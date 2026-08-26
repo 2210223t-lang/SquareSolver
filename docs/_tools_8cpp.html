@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Square Equation: COTexAI/COTexAssert.h File Reference</title>
+<title>Square Equation: source/Tools.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('_c_o_tex_assert_8h.html','',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_tools_8cpp.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -108,51 +108,88 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_c_o_tex_asser
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">COTexAssert.h File Reference</div></div>
+  <div class="headertitle"><div class="title">Tools.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-</div>
-<p><a href="_c_o_tex_assert_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a6c3a2e5b9bbf8c0791aafe14d8d58f46" id="r_a6c3a2e5b9bbf8c0791aafe14d8d58f46"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6c3a2e5b9bbf8c0791aafe14d8d58f46">TRIAL_COTEXASSERT_H</a></td></tr>
-<tr class="memitem:a7a0e915b8e4a1dbd5d7eecfb6aa09a84" id="r_a7a0e915b8e4a1dbd5d7eecfb6aa09a84"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7a0e915b8e4a1dbd5d7eecfb6aa09a84">COTexAssert</a>(condition)</td></tr>
-<tr class="memdesc:a7a0e915b8e4a1dbd5d7eecfb6aa09a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">A custom assert with better sentences.  <br /></td></tr>
+<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aa06f04ede6192da5fe608df0a088e67f" id="r_aa06f04ede6192da5fe608df0a088e67f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa06f04ede6192da5fe608df0a088e67f">EqualsDouble</a> (double a, double b)</td></tr>
+<tr class="memdesc:aa06f04ede6192da5fe608df0a088e67f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks either a == b or not, not finite doubles can be compared too.  <br /></td></tr>
+<tr class="memitem:a8bb0ce5277ed01f81ba4b4dc3fa9cdd8" id="r_a8bb0ce5277ed01f81ba4b4dc3fa9cdd8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8bb0ce5277ed01f81ba4b4dc3fa9cdd8">SwapDouble</a> (double *a, double *b)</td></tr>
+<tr class="memdesc:a8bb0ce5277ed01f81ba4b4dc3fa9cdd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps values of 2 double variables.  <br /></td></tr>
+<tr class="memitem:af2fb522e9598195de9ff8b532d319755" id="r_af2fb522e9598195de9ff8b532d319755"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af2fb522e9598195de9ff8b532d319755">isnanUt</a> (double a)</td></tr>
+<tr class="memdesc:af2fb522e9598195de9ff8b532d319755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom func to check if a is NAN or not.  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a7a0e915b8e4a1dbd5d7eecfb6aa09a84" name="a7a0e915b8e4a1dbd5d7eecfb6aa09a84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a0e915b8e4a1dbd5d7eecfb6aa09a84">&#9670;&#160;</a></span>COTexAssert</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aa06f04ede6192da5fe608df0a088e67f" name="aa06f04ede6192da5fe608df0a088e67f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa06f04ede6192da5fe608df0a088e67f">&#9670;&#160;</a></span>EqualsDouble()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define COTexAssert</td>
+          <td class="memname">bool EqualsDouble </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>condition</em></span></td><td>)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks either a == b or not, not finite doubles can be compared too. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if a == b and False if a != b </dd></dl>
+
+</div>
+</div>
+<a id="af2fb522e9598195de9ff8b532d319755" name="af2fb522e9598195de9ff8b532d319755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2fb522e9598195de9ff8b532d319755">&#9670;&#160;</a></span>isnanUt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isnanUt </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A custom assert with better sentences. </p>
+<p>Custom func to check if a is NAN or not. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if a == NAN and False if a != NAN </dd></dl>
 
 </div>
 </div>
-<a id="a6c3a2e5b9bbf8c0791aafe14d8d58f46" name="a6c3a2e5b9bbf8c0791aafe14d8d58f46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c3a2e5b9bbf8c0791aafe14d8d58f46">&#9670;&#160;</a></span>TRIAL_COTEXASSERT_H</h2>
+<a id="a8bb0ce5277ed01f81ba4b4dc3fa9cdd8" name="a8bb0ce5277ed01f81ba4b4dc3fa9cdd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bb0ce5277ed01f81ba4b4dc3fa9cdd8">&#9670;&#160;</a></span>SwapDouble()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TRIAL_COTEXASSERT_H</td>
+          <td class="memname">void SwapDouble </td>
+          <td>(</td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Swaps values of 2 double variables. </p>
 
 </div>
 </div>
@@ -169,7 +206,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_9be509f229d70f38f85873aadd2b3436.html">COTexAI</a></li><li class="navelem"><a href="_c_o_tex_assert_8h.html">COTexAssert.h</a></li>
+    <li class="navelem"><a href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a href="_tools_8cpp.html">Tools.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
