@@ -2,3 +2,6 @@
 //TODO add new functions
 //TODO add voice key
 //TODO write getopt_long
+//TODO doxygen
+//TODO raylib.h
+//TODO fix getopt loop

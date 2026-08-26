@@ -91,10 +91,10 @@ void COTexInput( struct Equation* Equ)
     PrintAI( "Please, enter a: ", HCYN );
     Equ->a = COTexGetDouble( &CountOfMistakes );
 
-    printf( "I'm waiting for b: ", HCYN );
+    PrintAI( "I'm waiting for b: ", HCYN );
     Equ->b = COTexGetDouble( &CountOfMistakes );
 
-    printf( "I hope that you will enter c: ", HCYN );
+    PrintAI( "I hope that you will enter c: ", HCYN );
     Equ->c = COTexGetDouble( &CountOfMistakes );
 }
 

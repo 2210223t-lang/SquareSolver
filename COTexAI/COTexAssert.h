@@ -7,6 +7,7 @@
 
 #ifndef TRIAL_COTEXASSERT_H
 #define TRIAL_COTEXASSERT_H
+#include <stdlib.h>
 
 #define COTexAssert( condition )                                           \
     do {                                                                   \
