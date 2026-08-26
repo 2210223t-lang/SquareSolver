@@ -6,6 +6,8 @@
 #include "../header/Colours.h"
 #include "../header/Structures.h"
 
+#define MAX_INPUT_AMOUNT 8;
+
 
 double GetDouble( FILE* IStream, int* CountOfMistakes )
 {
@@ -43,7 +45,7 @@ bool UserInput( FILE* IStream, struct Equation* Equ)
     assert( Equ );
     assert( IStream );
 
-    int CountOfMistakes = 8;
+    int CountOfMistakes = MAX_INPUT_AMOUNT;
 
     printf( "Enter a: " );
     Equ->a = GetDouble( IStream, &CountOfMistakes );

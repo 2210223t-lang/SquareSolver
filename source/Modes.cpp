@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <math.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #include "../header/SquareSolver.h"
 #include "../header/UserIO.h"
@@ -71,7 +72,7 @@ void UserCalc( FILE* InputStream)
     bool KeepGoing = false;
     char Repeat = 'y';
 
-    while ( Repeat == 'y' )
+    while ( tolower( Repeat ) == 'y' )
     {
         KeepGoing = UserInput( InputStream, &Equ );
 

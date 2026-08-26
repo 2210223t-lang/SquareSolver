@@ -10,7 +10,7 @@
 #include "../header/Tools.h"
 #include "COTexUtility.h"
 #include "../header/SquareSolver.h"
-
+#include "COTexAssert.h"
 
 void MistakesReaction( int* MistakesAmount )
 {
@@ -88,13 +88,13 @@ void COTexInput( struct Equation* Equ)
 
     int CountOfMistakes = 5;
 
-    printf( HCYN "Please, enter a: " reset );
+    PrintAI( "Please, enter a: ", HCYN );
     Equ->a = COTexGetDouble( &CountOfMistakes );
 
-    printf( HCYN "I'm waiting for b: " reset );
+    printf( "I'm waiting for b: ", HCYN );
     Equ->b = COTexGetDouble( &CountOfMistakes );
 
-    printf( HCYN "I hope that you will enter c: " reset );
+    printf( "I hope that you will enter c: ", HCYN );
     Equ->c = COTexGetDouble( &CountOfMistakes );
 }
 
@@ -143,9 +143,10 @@ int COTexEquation( void )
         COTexOutput( CompiledRoots );
 
         printf( "Do you want to calculate again?\n(" HCYN );
-        PrintAI( "y",   GRN );
-        PrintAI( "/",  HCYN );
-        PrintAI( "n\n", RED );
+        PrintAI(   "y",   GRN );
+        PrintAI(   "/",  HCYN );
+        PrintAI( "n\n",   RED );
+        PrintAI(   ")",  HCYN );
         scanf( "%c", &Repeat );
         if ( Repeat != 'y' && Repeat != 'n')
         {
