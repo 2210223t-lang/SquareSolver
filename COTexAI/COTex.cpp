@@ -41,7 +41,7 @@ void KOTexStart( void )
     }
     else
     {
-        PrintAI( "ERROR: Token shortage.\nToken needed: ", HRED );
+        PrintAI( "ERROR: Token shortage.\nToken needed to process you request: ", HRED );
         printf( HRED "%d\n" reset, Token + 1 );
         PrintAI( "Token available: ", HRED );
         printf( HRED "%d\n" reset, Token );

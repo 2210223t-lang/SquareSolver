@@ -5,7 +5,9 @@
 #include "../header/Colours.h"
 #include "COTexAssert.h"
 
-#define POINT_TIMING 700000
+#define POINT_TIMING 700000 ///< Sets a time between printing one point in Thinking func
+
+#define PRINT_TIMING 50000 ///< Sets a time between printing letters in PrintAI func
 
 
 void PrintAI( const char* text, const char* colour )
@@ -17,7 +19,7 @@ void PrintAI( const char* text, const char* colour )
     {
         printf( "%s%c", colour, *text );
         fflush( stdout );
-        usleep( 50000 );
+        usleep( PRINT_TIMING );
         text++;
     }
     printf( reset );

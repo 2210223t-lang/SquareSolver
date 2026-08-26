@@ -12,15 +12,16 @@ void TerminalCommands( int argc, char* argv[] )
 {
     FILE* InputStream = stdin;
 
-    struct COTexOption long_options[] = { { "COTexmode", OPTIONAL_ARGUMENT, 0, 'c' },
+    struct COTexOption long_options[] = { { "COTexmode",      NO_ARGUMENTS, 0, 'c' },
                                           {  "autotest",      NO_ARGUMENTS, 0, 'a' },
-                                          {   "mantest",      NO_ARGUMENTS, 0, 'm' },
-                                          {  "usermode",      NO_ARGUMENTS, 0, 'u' },
+                                          {   "mantest", OPTIONAL_ARGUMENT, 0, 'm' },
+                                          {  "usermode", OPTIONAL_ARGUMENT, 0, 'u' },
                                           {      "help",      NO_ARGUMENTS, 0, 'h' },
                                           {           0,                 0, 0,  0  } };
     int Command = 0;
+    bool KeepGoing = true;
 
-    while( ( Command = COTexGetopt_long_only( argc, argv++, long_options, NULL ) ) != -1 )
+    while( KeepGoing == true && ( Command = COTexGetopt_long_only( argc, argv, long_options, NULL ) ) != -1 )
     {
         switch ( Command )
         {
@@ -33,20 +34,29 @@ void TerminalCommands( int argc, char* argv[] )
                 break;
 
             case 'm' :
-                //extern char* COTexoptarg;
                 InputStream = stdin;
                 if ( COTexoptarg != NULL )
                     InputStream = fopen( COTexoptarg, "r" );
 
-                printf( "%d", ManualTest( InputStream ) );
+                if( InputStream )
+                {
+                    printf( "%d", ManualTest( InputStream ) );
+                }
+                else
+                    fprintf( stderr, HRED "Incorrect filename" );//TODO add normal description
                 break;
 
             case 'u' :
                 InputStream = stdin;
                 if ( COTexoptarg != NULL )
                     InputStream = fopen( COTexoptarg, "r" );
+                if ( InputStream )
+                {
+                    UserCalc( InputStream );
+                }
+                else
+                    fprintf( stderr, HRED "Incorrect filename " );//TODO add normal desciption
 
-                UserCalc( InputStream );
                 break;
 
             case 'h' :
@@ -80,11 +90,13 @@ void TerminalCommands( int argc, char* argv[] )
                     "The requested operation cannot continue until the\n"
                     "command-line arguments have been corrected.\n"
                     "====================================================\n",
-                    *( --argv ), __func__, __FILE__, __LINE__ );
+                    *argv, __func__, __FILE__, __LINE__ );
+                KeepGoing = false;
                 break;
 
             default :
                 fprintf( stderr, "Getopt error" );
+                KeepGoing = false;
                 break;
         }
 

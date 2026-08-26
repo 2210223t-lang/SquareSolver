@@ -1,18 +1,25 @@
 #ifdef nDEBUG_AI
-
+//TODO ask about realisatioin
+/**
+ * @brief Turns of debug mode for COTexAssert
+ */
 #define COTexAssert( condition ) continue;
 
 #endif
 
-
 #ifndef TRIAL_COTEXASSERT_H
 #define TRIAL_COTEXASSERT_H
 #include <stdlib.h>
+#include <stdio.h>
 
+
+/**
+ * @brief A custom assert with better sentences
+ */
 #define COTexAssert( condition )                                           \
     do {                                                                   \
-        if (!(condition)) {                                                \
-            fprintf(stderr, HRED                                           \
+        if ( !( condition ) ) {                                            \
+            fprintf( stderr, HRED                                          \
                 "\n"                                                       \
                 "====================================================\n"   \
                 "       COTex AI Diagnostic System v0.0.1\n"               \
@@ -22,10 +29,10 @@
                 "to process.\n\n"                                          \
                 "AI analysis result:\n"                                    \
                 "  Status: CRITICAL FAILURE\n"                             \
-                "  Failed condition: %s\n"                                \
-                "  Function: %s\n"                                        \
-                "  Source file: %s\n"                                     \
-                "  Line number: %d\n\n"                                   \
+                "  Failed condition: %s\n"                                 \
+                "  Function: %s\n"                                         \
+                "  Source file: %s\n"                                      \
+                "  Line number: %d\n\n"                                    \
                 "Probable explanation:\n"                                  \
                 "  A required pointer may be NULL, an assumption may\n"    \
                 "  be incorrect, or reality may have refused to follow\n"  \
@@ -38,9 +45,10 @@
                 "The program will now terminate to prevent further\n"      \
                 "damage and unnecessary consumption of your tokens.\n"     \
                 "====================================================\n",  \
-                #condition, __func__, __FILE__, __LINE__);                 \
+                #condition, __func__, __FILE__, __LINE__ );                \
             abort();                                                       \
         }                                                                  \
     } while (0)
+
 
 #endif // TRIAL_COTEXASSERT_H

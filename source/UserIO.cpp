@@ -26,13 +26,13 @@ double GetDouble( FILE* IStream, int* CountOfMistakes )
 
             if ( *CountOfMistakes > 0 )
             {
-                printf( RED "\" is not a number, try again: " reset );
+                printf( "\"" RED " is not a number, try again: " reset );
                 InputAmount = fscanf( IStream, "%le", &Value );
                 Ch = getc( IStream );
             }
             else
             {
-                printf( "\" is not a number, too many attempts\n" reset );
+                printf( "\"" RED " is not a number, too many attempts\n" reset );
                 return NAN;
             }
         }
@@ -83,7 +83,7 @@ void Output( struct Keys CompiledRoots )
             break;
 
         case TWO_ROOTS : /* 2 roots */
-            printf( GRN " 2 roots\nx1 = %lf\n x2 = %lf\n" reset, CompiledRoots.x1, CompiledRoots.x2 );
+            printf( GRN " 2 roots\n x1 = %lf\n x2 = %lf\n" reset, CompiledRoots.x1, CompiledRoots.x2 );
             break;
 
         default: /* ERROR */

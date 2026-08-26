@@ -4,22 +4,12 @@
 #include <assert.h>
 
 
-double RandDouble( void )
-{
-    int x = rand() - RAND_MAX, y = rand() - RAND_MAX;
-    double Random = 0.0;
-
-    while ( isnan( Random = (double) x / y ) || isinf( Random ) );
-
-    return Random;
-}
-
 bool EqualsDouble( double a, double b )
 {
     const double eps = 1e-6;
 
     if ( isnan( a ) && isnan( b ) ) return true;
-
+    if ( isinf( a ) && isinf( b ) ) return true;
     if ( fabs( a - b ) <= eps )
     {
         return true;
@@ -39,7 +29,7 @@ void SwapDouble( double* a, double* b )
 
 }
 
-int isnanUt( double a )
+bool isnanUt( double a )
 {
     return !( a * INFINITY == INFINITY );
 }

@@ -12,6 +12,13 @@
 #include "../header/SquareSolver.h"
 #include "COTexAssert.h"
 
+/**
+ * @brief Prints special sentence for every remaining amount of mistakes
+ *
+ * @param[ in ] MistakesAmount int MistakesAmount shows remaining amount of mistakes
+ *
+ * @details When MistakesAmount == 0, it tells a user that it shots down and closing code
+ */
 void MistakesReaction( int* MistakesAmount )
 {
     COTexAssert( MistakesAmount );
@@ -53,6 +60,17 @@ void MistakesReaction( int* MistakesAmount )
 
 }
 
+/**
+ * @brief Taking doubel from stdin
+ *
+ * @param[ in, out ] MistalesAmount int MistakesAmount shows how many input mistakes user can make
+ *
+ * @return Returns inputted value and NAN
+ *
+ * @details Works untill user will enter correct value or make too many mistakes.
+ *          Function provide different feedback for different amount of made mistakes, imitating
+ *          that AI is loosing his temper with every mistake
+ */
 double COTexGetDouble( int* MistakesAmount )
 {
     COTexAssert( MistakesAmount );
@@ -126,6 +144,11 @@ void COTexOutput( struct Keys CompiledRoots )
 
 }
 
+/**
+ * @brief Starts calculating roots wit AI assistant
+ *
+ * @return 0 if user answered incorrect on ask for continuation of work and 1 if code exited successfully
+ */
 int COTexEquation( void )
 {
     struct Equation Equ = { .a = NAN, .b = NAN, .c = NAN };
