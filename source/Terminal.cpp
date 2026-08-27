@@ -3,11 +3,11 @@
 #include <assert.h>
 #include <stdlib.h>
 
-#include "../header/Modes.h"
+#include "../header/AutoTest.h"
 #include "../COTexAI/AI.h"
 #include "../COTexAI/COTexGetopt.h"
-#include "../header/Colours.h"
-
+#include "../header/UserMode.h"
+#include "../header/ManualMode.h"
 
 void TerminalCommands( int argc, char* argv[] )
 {
@@ -26,50 +26,30 @@ void TerminalCommands( int argc, char* argv[] )
     {
         switch ( Command )
         {
-            case 'c' :
-                KOTexStart();
+            case 'c' : /// COTex
+                COTexStart();
                 break;
 
-            case 'a' :
-                printf( "Test ended with: %d mistakes.\n", AutoTest() );
+            case 'a' : /// Auto test
+                AutoTest();
                 break;
 
-            case 'm' :
-                InputStream = stdin;
-                printf( "Expected sequence of input: a, b, c, x1, x2, RootAmount.\n"
-                        "To stop testing press Ctrl + Z\n" );
-                if ( COTexoptarg != NULL )
-                    InputStream = fopen( COTexoptarg, "r" );
-
-                if( InputStream )
-                {
-                    printf( "Test ended with: %d mistakes\n", ManualTest( InputStream ) );
-                }
-                else
-                    fprintf( stderr, HRED "IncorrectFilename: %s", FileNameFailure );
+            case 'm' : /// Manual test
+                StartManualTest( COTexoptarg );
                 break;
 
-            case 'u' :
-                InputStream = stdin;
-                if ( COTexoptarg != NULL )
-                    InputStream = fopen( COTexoptarg, "r" );
-                if ( InputStream )
-                {
-                    UserCalc( InputStream );
-                }
-                else
-                    fprintf( stderr, HRED "%s", FileNameFailure );
-
+            case 'u' : /// User mode
+                RunUserMode( COTexoptarg );
                 break;
 
-            case 'h' :
+            case 'h' : /// Help
                 printf( "To start User    Mode type -usermode\n"
                         "To start Auto    Test type -autotest\n"
                         "To start Manual  Test type -mantest\n"
                         "To start AI      mode type -COTexmode\n" );
                 break;
 
-            case '?' :
+            case '?' : /// Unknown command
                 KeepGoing = false;
                 break;
 

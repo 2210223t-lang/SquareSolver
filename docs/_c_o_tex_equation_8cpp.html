@@ -181,6 +181,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns inputted value and NAN</dd></dl>
 <p>Works untill user will enter correct value or make too many mistakes. Function provide different feedback for different amount of made mistakes, imitating that AI is loosing his temper with every mistake </p>
+<p>Checks if there are attempts left and that word is double</p>
 
 </div>
 </div>
@@ -244,7 +245,7 @@ Functions</h2></td></tr>
 <p>Prints special sentence for every remaining amount of mistakes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">MistakesAmount</td><td>int MistakesAmount shows remaining amount of mistakes</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">MistakesAmount</td><td>int* MistakesAmount shows remaining amount of mistakes</td></tr>
   </table>
   </dd>
 </dl>

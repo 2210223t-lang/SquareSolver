@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
+#include <ctype.h>
 
+
+#include "../header/Structures.h"
 #include "../header/Tools.h"
 #include "../header/Colours.h"
-#include "../header/Structures.h"
+#include "../header/SquareSolver.h"
 
 #define MAX_INPUT_AMOUNT 8;
 
@@ -50,19 +53,19 @@ bool UserInput( FILE* IStream, struct Equation* Equ)
     printf( "Enter a: " );
     Equ->a = GetDouble( IStream, &CountOfMistakes );
 
-    if ( !isnan( Equ->a ) )
+    if ( CountOfMistakes > 0 )
     {
         printf( "\nEnter b: " );
         Equ->b = GetDouble( IStream, &CountOfMistakes );
     }
 
-    if ( !isnan( Equ->b ) )
+    if ( CountOfMistakes> 0 )
     {
         printf( "\nEnter c: " );
         Equ->c = GetDouble( IStream, &CountOfMistakes );
     }
 
-    return ( isnan( Equ->c ) ) ? false : true;
+    return ( CountOfMistakes <= 0 ) ? false : true;
 }
 
 void Output( struct Keys* CompiledRoots )
@@ -92,3 +95,45 @@ void Output( struct Keys* CompiledRoots )
     }
 
 }
+
+void UserCalc( FILE* InputStream )
+{
+    assert( InputStream );
+
+    struct Equation Equ = { .a = NAN, .b = NAN, .c = NAN };
+    struct Keys CompiledRoots = { .x1 = NAN, .x2 = NAN };
+    bool KeepGoing = false;
+    char Repeat = 'y';
+
+    while ( tolower( Repeat ) == 'y' )
+    {
+        KeepGoing = UserInput( InputStream, &Equ );
+
+        if ( KeepGoing == true )
+        {
+            CompiledRoots.RootAmount = SquareSolve( &Equ, &CompiledRoots );
+            Output( &CompiledRoots );
+        }
+
+        printf( "Do you want to calculate again?\n(" GRN "y" reset "/" RED "n" reset ")\n" );
+        scanf( "%c", &Repeat );
+    }
+
+}
+
+void RunUserMode( char* COTexoptarg )
+{
+    FILE* InputStream = stdin;
+
+    if ( COTexoptarg != NULL ) /// If no argument
+        InputStream = fopen( COTexoptarg, "r" );
+
+    if ( InputStream ) /// If file openned
+    {
+        UserCalc( InputStream );
+    }
+    else /// If file didn't opened
+        fprintf( stderr, HRED "Cannot open the file: %s", COTexoptarg );
+}
+
+

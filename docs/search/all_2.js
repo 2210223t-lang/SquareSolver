@@ -23,10 +23,11 @@ var searchData=
   ['cotexoption_20',['COTexOption',['../struct_c_o_tex_option.html',1,'']]],
   ['cotexoutput_21',['COTexOutput',['../_c_o_tex_equation_8cpp.html#a5c9884490c36846b580c687bae9b8914',1,'COTexOutput(struct Keys *CompiledRoots):&#160;COTexEquation.cpp'],['../_c_o_tex_equation_8h.html#a4201fed218231854a9e1b1bbed71916b',1,'COTexOutput(struct Keys CompiledRoots):&#160;COTexEquation.h']]],
   ['cotexspeech_2eh_22',['COTexSpeech.h',['../_c_o_tex_speech_8h.html',1,'']]],
-  ['cotexutility_2ecpp_23',['COTexUtility.cpp',['../_c_o_tex_utility_8cpp.html',1,'']]],
-  ['cotexutility_2eh_24',['COTexUtility.h',['../_c_o_tex_utility_8h.html',1,'']]],
-  ['cotexweather_25',['COTexWeather',['../_c_o_tex_features_8cpp.html#ae3d2df532d50040e5500b790df160a88',1,'COTexWeather(void):&#160;COTexFeatures.cpp'],['../_c_o_tex_features_8h.html#ae3d2df532d50040e5500b790df160a88',1,'COTexWeather(void):&#160;COTexFeatures.cpp']]],
-  ['cyn_26',['CYN',['../_colours_8h.html#adc708fa688f5d78db361f66c36f0f807',1,'Colours.h']]],
-  ['cynb_27',['CYNB',['../_colours_8h.html#a8306583a0a15ac790abff9f850ba7788',1,'Colours.h']]],
-  ['cynhb_28',['CYNHB',['../_colours_8h.html#a7a4a8ba024e9466a257e7e6a439d8f11',1,'Colours.h']]]
+  ['cotexstart_23',['COTexStart',['../_a_i_8h.html#a3b4c2d6a4dbf8a3ed92ca0ddcaad8fd8',1,'COTexStart(void):&#160;COTex.cpp'],['../_c_o_tex_8cpp.html#a3b4c2d6a4dbf8a3ed92ca0ddcaad8fd8',1,'COTexStart(void):&#160;COTex.cpp']]],
+  ['cotexutility_2ecpp_24',['COTexUtility.cpp',['../_c_o_tex_utility_8cpp.html',1,'']]],
+  ['cotexutility_2eh_25',['COTexUtility.h',['../_c_o_tex_utility_8h.html',1,'']]],
+  ['cotexweather_26',['COTexWeather',['../_c_o_tex_features_8cpp.html#ae3d2df532d50040e5500b790df160a88',1,'COTexWeather(void):&#160;COTexFeatures.cpp'],['../_c_o_tex_features_8h.html#ae3d2df532d50040e5500b790df160a88',1,'COTexWeather(void):&#160;COTexFeatures.cpp']]],
+  ['cyn_27',['CYN',['../_colours_8h.html#adc708fa688f5d78db361f66c36f0f807',1,'Colours.h']]],
+  ['cynb_28',['CYNB',['../_colours_8h.html#a8306583a0a15ac790abff9f850ba7788',1,'Colours.h']]],
+  ['cynhb_29',['CYNHB',['../_colours_8h.html#a7a4a8ba024e9466a257e7e6a439d8f11',1,'Colours.h']]]
 ];

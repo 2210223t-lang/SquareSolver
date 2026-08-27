@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['squaresolve_0',['SquareSolve',['../_square_solver_8h.html#a4b242827bf1596410344ce4e82bb66be',1,'SquareSolve(struct Equation *Equ, struct Keys *CompiledRoots):&#160;SquareSolver.cpp'],['../_square_solver_8cpp.html#a4b242827bf1596410344ce4e82bb66be',1,'SquareSolve(struct Equation *Equ, struct Keys *CompiledRoots):&#160;SquareSolver.cpp']]],
-  ['swapdouble_1',['SwapDouble',['../_tools_8h.html#a8bb0ce5277ed01f81ba4b4dc3fa9cdd8',1,'SwapDouble(double *a, double *b):&#160;Tools.cpp'],['../_tools_8cpp.html#a8bb0ce5277ed01f81ba4b4dc3fa9cdd8',1,'SwapDouble(double *a, double *b):&#160;Tools.cpp']]]
+  ['terminalcommands_0',['TerminalCommands',['../_terminal_8h.html#a06557450b63a727e058cb2d40b59c8fd',1,'TerminalCommands(int argc, char *argv[]):&#160;Terminal.cpp'],['../_terminal_8cpp.html#a5d67cafc71369641463e6b6aa6bd0d5b',1,'TerminalCommands(int argc, char *argv[]):&#160;Terminal.cpp']]],
+  ['thinking_1',['Thinking',['../_c_o_tex_utility_8cpp.html#aa1bb753f87056bfc1bb4d12a6648237f',1,'Thinking(const char *Text, int time):&#160;COTexUtility.cpp'],['../_c_o_tex_utility_8h.html#aa1bb753f87056bfc1bb4d12a6648237f',1,'Thinking(const char *Text, int time):&#160;COTexUtility.cpp']]]
 ];

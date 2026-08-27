@@ -4,6 +4,6 @@
 /**
  * @brief Starts an AI mode
  */
-void KOTexStart( void );
+void COTexStart( void );
 
 #endif //TRIAL_AI_H

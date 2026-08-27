@@ -11,7 +11,7 @@
 #include "COTexFeatures.h"
 
 
-void KOTexStart( void )
+void COTexStart( void )
 {
     srand( ( unsigned ) time( NULL ) );
 

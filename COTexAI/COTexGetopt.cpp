@@ -43,13 +43,14 @@ bool CheckCommand( char* Command, const char* Flag )
 }
 
 char* COTexoptarg; ///< Custom analogue of a standart optarg variable
-static int number = 1; ///< Extern variable for COTexGetopt, which stores number of current argv element
 
 int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_options, int* index )
 {
     COTexAssert(  argv );
     COTexAssert( *argv );
     COTexAssert( long_options );
+
+    static int number = 1; ///< Static variable for COTexGetopt, which stores number of current argv element
 
     if( number > argc - 1 ) return END_OF_INPUT;
 

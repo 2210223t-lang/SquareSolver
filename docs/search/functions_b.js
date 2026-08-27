@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['terminalcommands_0',['TerminalCommands',['../_terminal_8h.html#a06557450b63a727e058cb2d40b59c8fd',1,'TerminalCommands(int argc, char *argv[]):&#160;Terminal.cpp'],['../_terminal_8cpp.html#a5d67cafc71369641463e6b6aa6bd0d5b',1,'TerminalCommands(int argc, char *argv[]):&#160;Terminal.cpp']]],
-  ['thinking_1',['Thinking',['../_c_o_tex_utility_8cpp.html#aa1bb753f87056bfc1bb4d12a6648237f',1,'Thinking(const char *Text, int time):&#160;COTexUtility.cpp'],['../_c_o_tex_utility_8h.html#aa1bb753f87056bfc1bb4d12a6648237f',1,'Thinking(const char *Text, int time):&#160;COTexUtility.cpp']]]
+  ['usercalc_0',['UserCalc',['../_modes_8h.html#aa4d3cd3aed711fe3dec9bae5b6b1f202',1,'UserCalc(FILE *InputStream):&#160;Modes.cpp'],['../_modes_8cpp.html#a70bf1a76f7c36305ae740fa207a4bbb2',1,'UserCalc(FILE *InputStream):&#160;Modes.cpp']]],
+  ['userinput_1',['UserInput',['../_user_i_o_8h.html#ac2845943c3a5636cf21a419705b3621e',1,'UserInput(FILE *InputStream, struct Equation *Equ):&#160;UserIO.cpp'],['../_user_i_o_8cpp.html#a879d66b1de47ef0732227279fa4c9176',1,'UserInput(FILE *IStream, struct Equation *Equ):&#160;UserIO.cpp']]]
 ];

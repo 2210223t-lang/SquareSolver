@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kotexstart_0',['KOTexStart',['../_a_i_8h.html#a83fc092015b2fdb3ea23c7f1746334c7',1,'KOTexStart(void):&#160;COTex.cpp'],['../_c_o_tex_8cpp.html#a83fc092015b2fdb3ea23c7f1746334c7',1,'KOTexStart(void):&#160;COTex.cpp']]]
+  ['linearsolve_0',['LinearSolve',['../_square_solver_8h.html#aa21f8827e1a21c6520d2ee365f60b759',1,'LinearSolve(double b, double c, double *x1):&#160;SquareSolver.cpp'],['../_square_solver_8cpp.html#aa21f8827e1a21c6520d2ee365f60b759',1,'LinearSolve(double b, double c, double *x1):&#160;SquareSolver.cpp']]]
 ];
