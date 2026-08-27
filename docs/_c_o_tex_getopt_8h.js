@@ -7,6 +7,5 @@ var _c_o_tex_getopt_8h =
       [ "OPTIONAL_ARGUMENT", "_c_o_tex_getopt_8h.html#a843937b562ece2c59bb3c64ba3e30066ac7815aeb822aab17aa30af74059865e7", null ]
     ] ],
     [ "COTexGetopt_long_only", "_c_o_tex_getopt_8h.html#aa2b519f99324ca37e102f4a87cf4332f", null ],
-    [ "COTexoptarg", "_c_o_tex_getopt_8h.html#adc0d4c970c4700b824a8dd42973ada6e", null ],
-    [ "FileNameFailure", "_c_o_tex_getopt_8h.html#a3635ebe8493193e78597f1ee855b5cb4", null ]
+    [ "COTexoptarg", "_c_o_tex_getopt_8h.html#adc0d4c970c4700b824a8dd42973ada6e", null ]
 ];

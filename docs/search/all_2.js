@@ -1,7 +1,7 @@
 var searchData=
 [
   ['c_0',['c',['../struct_equation.html#a29cc5017c66525ee2adaa853653d1504',1,'Equation']]],
-  ['checkanswer_1',['CheckAnswer',['../_modes_8cpp.html#ae0f5b662b6e82f9815274635cfb73754',1,'Modes.cpp']]],
+  ['checkanswer_1',['CheckAnswer',['../_mode_utility_8h.html#ae0f5b662b6e82f9815274635cfb73754',1,'CheckAnswer(struct Equation *Test, struct Keys *Answers):&#160;ModeUtility.cpp'],['../_mode_utility_8cpp.html#ae0f5b662b6e82f9815274635cfb73754',1,'CheckAnswer(struct Equation *Test, struct Keys *Answers):&#160;ModeUtility.cpp']]],
   ['checkcommand_2',['CheckCommand',['../_c_o_tex_getopt_8cpp.html#a6821e22a83dc9058d4018f7590ccb973',1,'COTexGetopt.cpp']]],
   ['colours_2eh_3',['Colours.h',['../_colours_8h.html',1,'']]],
   ['command_4',['Command',['../struct_c_o_tex_option.html#ae2763a02c824d7fcdd895c9f12e3bc48',1,'COTexOption']]],

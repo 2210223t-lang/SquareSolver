@@ -20,7 +20,8 @@
                       "This is you last attempt! \nType variable: "
 
 /**
- * @brief Mood sentence for the 4th mistake */
+ * @brief Mood sentence for the 4th mistake
+ */
 #define FURY_MOOD "<---You don't believe me, that i'll stop running after one more mistake?"\
                   "\nEnter your variable: "
 

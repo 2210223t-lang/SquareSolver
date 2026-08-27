@@ -5,7 +5,7 @@
 #include "../header/Colours.h"
 #include "COTexAssert.h"
 
-#define POINT_TIMING 700000 ///< Sets a time between printing one point in Thinking func
+#define POINT_TIMING 700000 ///< Sets a time between printing points in Thinking func
 
 #define PRINT_TIMING 50000 ///< Sets a time between printing letters in PrintAI func
 

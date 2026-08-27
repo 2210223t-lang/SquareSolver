@@ -53,11 +53,14 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
 
     static int number = 1; ///< Static variable for COTexGetopt, which stores number of current argv element
 
+    /// If no more arguments to parse
     if ( number > argc - 1 ) return END_OF_INPUT;
 
+    /// If argument is a command
     if ( *argv[ number ] == '-' )
     {
 
+        /// While there are unchecked Commands
         while ( long_options->Command )
         {
 

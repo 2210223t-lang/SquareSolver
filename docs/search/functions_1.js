@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['checkanswer_0',['CheckAnswer',['../_modes_8cpp.html#ae0f5b662b6e82f9815274635cfb73754',1,'Modes.cpp']]],
+  ['checkanswer_0',['CheckAnswer',['../_mode_utility_8h.html#ae0f5b662b6e82f9815274635cfb73754',1,'CheckAnswer(struct Equation *Test, struct Keys *Answers):&#160;ModeUtility.cpp'],['../_mode_utility_8cpp.html#ae0f5b662b6e82f9815274635cfb73754',1,'CheckAnswer(struct Equation *Test, struct Keys *Answers):&#160;ModeUtility.cpp']]],
   ['checkcommand_1',['CheckCommand',['../_c_o_tex_getopt_8cpp.html#a6821e22a83dc9058d4018f7590ccb973',1,'COTexGetopt.cpp']]],
   ['cotexequation_2',['COTexEquation',['../_c_o_tex_equation_8cpp.html#a64c6e5c655e2febc8ec49684559e9c57',1,'COTexEquation(void):&#160;COTexEquation.cpp'],['../_c_o_tex_equation_8h.html#acf99b501479117c0454bd1e8f21a4458',1,'COTexEquation(void):&#160;COTexEquation.cpp']]],
   ['cotexgetdouble_3',['COTexGetDouble',['../_c_o_tex_equation_8cpp.html#a0d5c1a3e2c2b3fbe98f80460256cbf4d',1,'COTexEquation.cpp']]],

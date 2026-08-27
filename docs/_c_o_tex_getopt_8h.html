@@ -135,8 +135,6 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a3635ebe8493193e78597f1ee855b5cb4" id="r_a3635ebe8493193e78597f1ee855b5cb4"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a3635ebe8493193e78597f1ee855b5cb4">FileNameFailure</a></td></tr>
-<tr class="memdesc:a3635ebe8493193e78597f1ee855b5cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints in case of unability to open mentioned File.  <br /></td></tr>
 <tr class="memitem:adc0d4c970c4700b824a8dd42973ada6e" id="r_adc0d4c970c4700b824a8dd42973ada6e"><td class="memItemLeft">char *&#160;</td><td class="memItemRight"><a class="el" href="#adc0d4c970c4700b824a8dd42973ada6e">COTexoptarg</a></td></tr>
 <tr class="memdesc:adc0d4c970c4700b824a8dd42973ada6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom analogue of a standart optarg variable.  <br /></td></tr>
 </table>
@@ -193,6 +191,10 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Custom copy of a standart function getopt_long_only. </p>
+<p>&lt; Static variable for COTexGetopt, which stores number of current argv element</p>
+<p>If no more arguments to parse</p>
+<p>If argument is a command</p>
+<p>While there are unchecked Commands</p>
 <p>&lt; If user mentioned index as a poiner to a variable where to store current option's number</p>
 <p>&lt; There is an argument</p>
 <p>&lt; There is no arguments</p>
@@ -225,50 +227,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Custom analogue of a standart optarg variable. </p>
-
-</div>
-</div>
-<a id="a3635ebe8493193e78597f1ee855b5cb4" name="a3635ebe8493193e78597f1ee855b5cb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3635ebe8493193e78597f1ee855b5cb4">&#9670;&#160;</a></span>FileNameFailure</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* FileNameFailure</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;\n&quot;</span> <a class="code hl_define" href="_colours_8h.html#a5d8a7436764d30054a9c455a5f719b91">HRED</a></div>
-<div class="line">     <span class="stringliteral">&quot;====================================================\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;          COTex AI File Analysis System v0.0.1\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;====================================================\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;The program attempted to process the specified file,\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;but the supplied filename could not be accepted.\n\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;AI analysis result:\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  Status: INVALID FILENAME\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  Provided filename: \&quot;%s\&quot;\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  Function: %s\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  Source file: %s\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  Line number: %d\n\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;Probable explanation:\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  The filename may be misspelled, the file may not exist,\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  or the provided path may refer to the wrong location.\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  The program may also lack permission to access the file.\n\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;Suggested AI solution:\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  1. Check the spelling of the filename.\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  2. Verify that the file exists in the specified directory.\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  3. Check whether the path is relative to the directory\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;     from which the program was started.\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  4. Confirm that the program has permission to read it.\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;  5. Enter the corrected filename and try again.\n\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;The requested file operation cannot continue because the\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;AI has not yet developed the ability to locate files that\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;exist only in the user&#39;s imagination.\n&quot;</span></div>
-<div class="line">     <span class="stringliteral">&quot;====================================================\n &quot;</span></div>
-<div class="ttc" id="a_colours_8h_html_a5d8a7436764d30054a9c455a5f719b91"><div class="ttname"><a href="_colours_8h.html#a5d8a7436764d30054a9c455a5f719b91">HRED</a></div><div class="ttdeci">#define HRED</div><div class="ttdef"><b>Definition</b> Colours.h:55</div></div>
-</div><!-- fragment -->
-<p>Prints in case of unability to open mentioned File. </p>
 
 </div>
 </div>

@@ -150,11 +150,6 @@ void COTexOutput( struct Keys* CompiledRoots )
 
 }
 
-/**
- * @brief Starts calculating roots wit AI assistant
- *
- * @return 0 if user answered incorrect on ask for continuation of work and 1 if code exited successfully
- */
 int COTexEquation( void )
 {
     struct Equation Equ = { .a = NAN, .b = NAN, .c = NAN };
