@@ -31,10 +31,11 @@ bool CheckCommand( char* Command, const char* Flag )
 {
     Command++;
 
-    while( *Command )
+    while ( *Command )
     {
-        if ( *Command != *Flag || !*Flag )
+        if ( *Command != *Flag || !( *Flag ) )
             return false;
+
         Command++;
         Flag++;
     }
@@ -42,7 +43,7 @@ bool CheckCommand( char* Command, const char* Flag )
     return true;
 }
 
-char* COTexoptarg; ///< Custom analogue of a standart optarg variable
+char* COTexoptarg = 0; ///< Custom analogue of a standart optarg variable
 
 int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_options, int* index )
 {
@@ -52,20 +53,23 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
 
     static int number = 1; ///< Static variable for COTexGetopt, which stores number of current argv element
 
-    if( number > argc - 1 ) return END_OF_INPUT;
+    if ( number > argc - 1 ) return END_OF_INPUT;
 
-    if( *argv[ number ] == '-' )
+    if ( *argv[ number ] == '-' )
     {
 
-        while( long_options->Command )
+        while ( long_options->Command )
         {
+
             if ( CheckCommand( argv[ number ], long_options->Command ) )
             {
+
                 if ( index ) *index = number; ///< If user  mentioned index as a poiner to a variable where to store current option's number
 
-                switch( long_options->ArgumentAmount )
+                switch ( long_options->ArgumentAmount )
                 {
                     case NO_ARGUMENTS :
+
                         if ( long_options->flag )
                         {
                             number++;
@@ -79,6 +83,7 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
                         }
 
                     case REQUIRED_ARGUMENT :
+
                         if ( argc - 1 >= number ) ///< There is an argument
                         {
                             number++;
@@ -106,6 +111,7 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
                         }
 
                     case OPTIONAL_ARGUMENT :
+
                         if ( argc - 2 >= number && *argv[ number + 1 ] != '-' ) ///< There is an argument
                         {
                             number++;
@@ -131,6 +137,7 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
                         }
 
                     default :
+
                         fprintf( stderr, SWITCH_FAILURE, long_options->ArgumentAmount, __func__, __FILE__, __LINE__ );
                         number++;
                         return END_OF_INPUT;

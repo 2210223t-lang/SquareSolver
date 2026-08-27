@@ -12,7 +12,7 @@ void COTexWeather( void )
     int flag = rand();
     int temp =  abs ( rand() / 53687091 );
 
-    switch( flag % 3 )
+    switch ( flag % 3 )
     {
         case 0 :
             PrintAI( "Rain is expected tomorrow, don't forget an umbrela. \nExpected temperature is about: ", HCYN );

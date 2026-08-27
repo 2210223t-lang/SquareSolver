@@ -19,8 +19,8 @@ struct Equation
  */
 struct Keys
 {
-    double x1; ///< First coefficient
-    double x2; ///< Second coefficient
+    double x1; ///< First root
+    double x2; ///< Second root
     int RootAmount; ///< Amount of real roots
 };
 

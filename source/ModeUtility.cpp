@@ -39,7 +39,7 @@ int GetKeys( struct Keys* Ans, FILE* InputStream )
     return 0;
 }
 
-int CheckAnswer ( struct Equation* Test, struct Keys* Answers )
+int CheckAnswer( struct Equation* Test, struct Keys* Answers )
 {
     assert( Test );
     assert( Answers );

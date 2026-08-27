@@ -44,6 +44,6 @@ int GetKeys( struct Keys* Ans, FILE* InputStream );
  *
  * @return 1 if something went wrong and 0 if not
  */
-int CheckAnswer ( struct Equation* Test, struct Keys* Answers );
+int CheckAnswer( struct Equation* Test, struct Keys* Answers );
 
 #endif //TRIAL_MODEUTILITY_H

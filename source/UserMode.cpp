@@ -38,12 +38,13 @@ double GetDouble( FILE* IStream, int* CountOfMistakes )
                 printf( "\"" RED " is not a number, too many attempts\n" reset );
                 return NAN;
             }
+
         }
 
     return Value;
 }
 
-bool UserInput( FILE* IStream, struct Equation* Equ)
+bool UserInput( FILE* IStream, struct Equation* Equ )
 {
     assert( Equ );
     assert( IStream );
@@ -59,7 +60,7 @@ bool UserInput( FILE* IStream, struct Equation* Equ)
         Equ->b = GetDouble( IStream, &CountOfMistakes );
     }
 
-    if ( CountOfMistakes> 0 )
+    if ( CountOfMistakes > 0 )
     {
         printf( "\nEnter c: " );
         Equ->c = GetDouble( IStream, &CountOfMistakes );

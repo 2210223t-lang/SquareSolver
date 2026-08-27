@@ -6,7 +6,7 @@
  *
  * @param[ out ] Equ struct Equation* Equ pointer to a variable ,where coefficients will be stored
  */
-void COTexInput( struct Equation* Equ);
+void COTexInput( struct Equation* Equ );
 
 /**
  * @brief Prints roots that programm calculated

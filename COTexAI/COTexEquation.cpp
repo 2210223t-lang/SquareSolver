@@ -54,7 +54,7 @@ void MistakesReaction( int* MistakesAmount )
             abort();
 
         default :
-            printf( "file %s, line %d\n", __FILE__, __LINE__);
+            fprintf( stderr, HRED "ERROR in file %s, line %d\n", __FILE__, __LINE__ );
             abort();
 
     };
@@ -87,9 +87,9 @@ double COTexGetDouble( int* MistakesAmount )
     {
          --( *MistakesAmount );
 
-        putchar( '\"');
-        if( !isfinite( Value ) ) printf( HRED "%lf" reset, Value );
-        if( Ch != '\n' )
+        putchar( '\"' );
+        if ( !isfinite( Value ) ) printf( HRED "%lf" reset, Value );
+        if ( Ch != '\n' )
         {
             printf( HRED "%c" reset, Ch );
             while ( ( Ch = getchar() ) != '\n' ) printf( HRED "%c" reset, Ch );
@@ -173,7 +173,7 @@ int COTexEquation( void )
         printf( "Do you want to calculate again?\n(" HCYN );
         PrintAI(   "y",   GRN );
         PrintAI(   "/",  HCYN );
-        PrintAI( "n",   RED );
+        PrintAI(   "n",   RED );
         PrintAI(   ")",  HCYN );
         scanf( "%c", &Repeat );
         Thinking( "Kumekay", 3 );

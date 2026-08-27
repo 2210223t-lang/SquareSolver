@@ -27,6 +27,13 @@
 /**
  * @brief Mood flags, that are used in MistakesReaction
  */
-enum mood{ GOOD = 4, NEUTRAL = 3, ANGRY = 2, FURY = 1, FRIED = 0 };
+enum mood
+{
+    GOOD = 4,
+    NEUTRAL = 3,
+    ANGRY = 2,
+    FURY = 1,
+    FRIED = 0
+};
 
 #endif // TRIAL_COTEXSPEECH_H

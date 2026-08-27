@@ -22,7 +22,7 @@ void TerminalCommands( int argc, char* argv[] )
     int Command = 0;
     bool KeepGoing = true;
 
-    while( KeepGoing == true && ( Command = COTexGetopt_long_only( argc, argv, long_options, NULL ) ) != -1 )
+    while ( KeepGoing == true && ( Command = COTexGetopt_long_only( argc, argv, long_options, NULL ) ) != -1 )
     {
         switch ( Command )
         {

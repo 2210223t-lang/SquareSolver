@@ -8,12 +8,10 @@ bool EqualsDouble( double a, double b )
 {
     const double eps = 1e-6;
 
-    if ( isnan( a ) && isnan( b ) ) return true;
-    if ( isinf( a ) && isinf( b ) ) return true;
-    if ( fabs( a - b ) <= eps )
-    {
+    if ( ( isnan( a ) && isnan( b ) ) ||
+         ( isinf( a ) && isinf( b ) ) ||
+         ( fabs( a - b ) <= eps ) )
         return true;
-    }
 
     return false;
 }

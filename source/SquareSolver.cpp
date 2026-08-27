@@ -22,9 +22,7 @@ int LinearSolve( double b, double c, double* x1 )
             return INFINITY_ROOTS;
         }
         else
-        {
             return NO_ROOTS;
-        }
 
     }
 }

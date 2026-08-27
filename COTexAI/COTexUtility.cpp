@@ -15,7 +15,7 @@ void PrintAI( const char* text, const char* colour )
     COTexAssert( text );
     COTexAssert( colour );
 
-    while( *text )
+    while ( *text )
     {
         printf( "%s%c", colour, *text );
         fflush( stdout );
@@ -31,29 +31,29 @@ void Thinking( const char* Text, int time )
 
     PrintAI( Text, GRN );
 
-    fflush(stdout);
+    fflush( stdout );
 
     for ( int i = 0; i < time; i++ )
     {
 
         usleep( POINT_TIMING );
         printf( GRN "\r%s.", Text );
-        fflush(stdout);
+        fflush( stdout );
 
         usleep( POINT_TIMING );
         printf( GRN "\r%s..", Text );
-        fflush(stdout);
+        fflush( stdout );
 
         usleep( POINT_TIMING );
         printf( GRN "\r%s...", Text );
-        fflush(stdout);
+        fflush( stdout );
 
         usleep( POINT_TIMING );
         printf( GRN "\r%s   ", Text );
-        fflush(stdout);
+        fflush( stdout );
 
     }
-    printf("\r" reset );
+    printf( "\r" reset );
 }
 
 
@@ -69,6 +69,6 @@ void PrintAIFunctions()
     PrintAI( "weather\n", HBLU );
     PrintAI( "3) The most ", HCYN );
     PrintAI( "useless ", RED );
-    PrintAI( "function is to calculate a Square or Linear Equation. But if you still want it, type ",HCYN);
+    PrintAI( "function is to calculate a Square or Linear Equation. But if you still want it, type ",HCYN );
     PrintAI( "equation\n", RED );
 }

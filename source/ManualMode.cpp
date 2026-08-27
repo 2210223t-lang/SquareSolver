@@ -25,13 +25,12 @@ int ManualTest( FILE* InputStream )
 
 void StartManualTest( char* COTexoptarg )
 {
-
     FILE* InputStream = stdin;
 
     if ( COTexoptarg ) /// If there is an argument
         InputStream = fopen( COTexoptarg, "r" );
 
-    if( InputStream ) /// If openned
+    if ( InputStream ) /// If openned
     {
         printf( "Expected sequence of input: a, b, c, x1, x2, RootAmount.\n"
                 "To stop testing press Ctrl + Z\n" );
@@ -39,5 +38,5 @@ void StartManualTest( char* COTexoptarg )
         printf( "Test ended with: %d mistakes\n", ManualTest( InputStream ) );
     }
     else /// If didn't openned
-        fprintf( stderr, HRED "IncorrectFilename: %s", COTexoptarg );
+        fprintf( stderr, HRED "Incorrect Filename: %s", COTexoptarg );
 }
