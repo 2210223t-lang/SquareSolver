@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['manual_5ftest_0',['MANUAL_TEST',['../_tools_8h.html#a5ba261125d0e6e60801792a10232cc09a3ea54e8cd5e607054ba6fd6005a1ac74',1,'Tools.h']]]
+  ['infinity_5froots_0',['INFINITY_ROOTS',['../_tools_8h.html#a932c1f666fa37452d6d5ee3cf43f9a88ab9cc5bd1ae69df733f0ef20e6e615497',1,'Tools.h']]]
 ];

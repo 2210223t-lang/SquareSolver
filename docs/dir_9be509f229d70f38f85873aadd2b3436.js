@@ -9,6 +9,7 @@ var dir_9be509f229d70f38f85873aadd2b3436 =
     [ "COTexFeatures.h", "_c_o_tex_features_8h.html", "_c_o_tex_features_8h" ],
     [ "COTexGetopt.cpp", "_c_o_tex_getopt_8cpp.html", "_c_o_tex_getopt_8cpp" ],
     [ "COTexGetopt.h", "_c_o_tex_getopt_8h.html", "_c_o_tex_getopt_8h" ],
+    [ "COTexGetoptUtility.h", "_c_o_tex_getopt_utility_8h.html", "_c_o_tex_getopt_utility_8h" ],
     [ "COTexSpeech.h", "_c_o_tex_speech_8h.html", "_c_o_tex_speech_8h" ],
     [ "COTexUtility.cpp", "_c_o_tex_utility_8cpp.html", "_c_o_tex_utility_8cpp" ],
     [ "COTexUtility.h", "_c_o_tex_utility_8h.html", "_c_o_tex_utility_8h" ]

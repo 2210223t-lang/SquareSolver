@@ -1,15 +1,9 @@
 #include <stdio.h>
-// #include <string.h>
 
-#include "../header/Colours.h"
 #include "COTexAssert.h"
+#include "COTexGetoptUtility.h"
 
-/**
- * @brief Argument amount constants for COTexGetopt
- */
-enum ArgumentAmount{ NO_ARGUMENTS = 0, REQUIRED_ARGUMENT = 1, OPTIONAL_ARGUMENT = 2 };
 
-static int number = 1; ///< Extern variable for COTexGetopt, which stores number of current argv element
 
 /**
  * @brief Custom copy of a standart option command from getopt.h
@@ -22,7 +16,6 @@ int* flag;
 int value;
 };
 
-char* COTexoptarg; ///< Custom analogue of a standart optarg variable
 
 
 /**
@@ -32,7 +25,7 @@ char* COTexoptarg; ///< Custom analogue of a standart optarg variable
  *
  * @param[ in ] Flag const char* Flag flag from the programm's code
  *
- * @return False if Command don't correspondes Flag and true if correspondes
+ * @return False if command don't correspondes Flag and true if correspondes
  */
 bool CheckCommand( char* Command, const char* Flag )
 {
@@ -49,14 +42,18 @@ bool CheckCommand( char* Command, const char* Flag )
     return true;
 }
 
+char* COTexoptarg; ///< Custom analogue of a standart optarg variable
+static int number = 1; ///< Extern variable for COTexGetopt, which stores number of current argv element
+
+
 int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_options, int* index )
 {
     COTexAssert(  argv );
     COTexAssert( *argv );
     COTexAssert( long_options );
 
-    if( number > argc - 1 )
-        return -1;
+    if( number > argc - 1 ) return END_OF_INPUT;
+
     if( *argv[ number ] == '-' )
     {
 
@@ -64,7 +61,7 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
         {
             if ( CheckCommand( argv[ number ], long_options->Command ) )
             {
-                if ( index ) *index = number;
+                if ( index ) *index = number; ///< If user  mentioned index as a poiner to a variable where to store current option's number
 
                 switch( long_options->ArgumentAmount )
                 {
@@ -73,7 +70,7 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
                         {
                             number++;
                             *long_options->flag = long_options->value;
-                            return 0;
+                            return FLAG_INITIALIZED_INTO_VARIABLE;
                         }
                         else
                         {
@@ -82,15 +79,16 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
                         }
 
                     case REQUIRED_ARGUMENT :
-                        if ( argc - 1 >= number )
+                        if ( argc - 1 >= number ) ///< There is an argument
                         {
-                            COTexoptarg = argv[ number + 1 ];
+                            number++;
+                            COTexoptarg = argv[ number ];
 
                             if ( *long_options->flag )
                             {
                                 number++;
                                 *long_options->flag = long_options->value;
-                                return 0;
+                                return FLAG_INITIALIZED_INTO_VARIABLE;
                             }
                             else
                             {
@@ -98,42 +96,44 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
                                 return long_options->value;
                             }
                         }
-                        else
+                        else ///< There is no arguments
                         {
+                            fprintf( stderr, ARGUMENT_ABSENCE,
+                                    long_options->Command, __func__, __FILE__, __LINE__,
+                                    long_options->Command, long_options->Command, long_options->Command );
                             number++;
-                            fprintf( stderr, "error");//TODO add a message
-                            return '?';
+                            return UNMENTIONED_COMMAND;
                         }
 
                     case OPTIONAL_ARGUMENT :
-                        if ( argc - 2 >= number && *argv[ number + 1 ] != '-' )
+                        if ( argc - 2 >= number && *argv[ number + 1 ] != '-' ) ///< There is an argument
                         {
+                            number++;
+                            COTexoptarg = argv[ number ];
 
-                            COTexoptarg = argv[ number + 1 ];
-
-                            if ( long_options->flag )
+                            if ( long_options->flag ) ///< There is a pointer to a variable to store flag
                             {
                                 number++;
                                 *long_options->flag = long_options->value;
-                                return 0;
+                                return FLAG_INITIALIZED_INTO_VARIABLE;
                             }
-                            else
+                            else ///< There is no pointer to a variable to store flag
                             {
                                 number++;
                                 return long_options->value;
                             }
 
                         }
-                        else
+                        else ///< There is no arguments
                         {
                             number++;
                             return long_options->value;
                         }
 
                     default :
-                        fprintf( stderr, HRED "COTexGetopt switch failure" );
+                        fprintf( stderr, SWITCH_FAILURE, long_options->ArgumentAmount, __func__, __FILE__, __LINE__ );
                         number++;
-                        return -1;
+                        return END_OF_INPUT;
 
                 }
 
@@ -142,7 +142,9 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
         }
     }
     else if ( number > argc - 1 )
-        return -1;
+        return END_OF_INPUT;
+
+    fprintf( stderr, UNKNOWN_COMMAND, argv[ number ], __func__, __FILE__, __LINE__ );
     number++;
-    return '?';
+    return UNMENTIONED_COMMAND;
 }

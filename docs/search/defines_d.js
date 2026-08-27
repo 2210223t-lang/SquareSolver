@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['yel_0',['YEL',['../_colours_8h.html#a96fac03c4ab3363f06a0328e0e53a40c',1,'Colours.h']]],
-  ['yelb_1',['YELB',['../_colours_8h.html#a3513df4b60cd6ffac6234d8c90cdd3d0',1,'Colours.h']]],
-  ['yelhb_2',['YELHB',['../_colours_8h.html#ad38a076c71788800293eda13fde72583',1,'Colours.h']]]
+  ['wht_0',['WHT',['../_colours_8h.html#aeaf3a04d5bf63b204689a714718ea930',1,'Colours.h']]],
+  ['whtb_1',['WHTB',['../_colours_8h.html#a39e6bb20617768ab8c74ef019d91cdd9',1,'Colours.h']]],
+  ['whthb_2',['WHTHB',['../_colours_8h.html#aa31c004776e31df569bffb18564ea31e',1,'Colours.h']]]
 ];

@@ -9,7 +9,8 @@ var searchData=
   ['cotexfeatures_2eh_6',['COTexFeatures.h',['../_c_o_tex_features_8h.html',1,'']]],
   ['cotexgetopt_2ecpp_7',['COTexGetopt.cpp',['../_c_o_tex_getopt_8cpp.html',1,'']]],
   ['cotexgetopt_2eh_8',['COTexGetopt.h',['../_c_o_tex_getopt_8h.html',1,'']]],
-  ['cotexspeech_2eh_9',['COTexSpeech.h',['../_c_o_tex_speech_8h.html',1,'']]],
-  ['cotexutility_2ecpp_10',['COTexUtility.cpp',['../_c_o_tex_utility_8cpp.html',1,'']]],
-  ['cotexutility_2eh_11',['COTexUtility.h',['../_c_o_tex_utility_8h.html',1,'']]]
+  ['cotexgetoptutility_2eh_9',['COTexGetoptUtility.h',['../_c_o_tex_getopt_utility_8h.html',1,'']]],
+  ['cotexspeech_2eh_10',['COTexSpeech.h',['../_c_o_tex_speech_8h.html',1,'']]],
+  ['cotexutility_2ecpp_11',['COTexUtility.cpp',['../_c_o_tex_utility_8cpp.html',1,'']]],
+  ['cotexutility_2eh_12',['COTexUtility.h',['../_c_o_tex_utility_8h.html',1,'']]]
 ];
