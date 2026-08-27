@@ -12,6 +12,7 @@
 #include "../header/SquareSolver.h"
 #include "COTexAssert.h"
 
+
 /**
  * @brief Prints special sentence for every remaining amount of mistakes
  *
@@ -48,7 +49,7 @@ void MistakesReaction( int* MistakesAmount )
         case FRIED :
             printf( "\"" );
             PrintAI( "<---I'm fried, ", HCYN );
-            PrintAI(" FUCK OUT!!!", HRED );
+            PrintAI(" FUCK OUT!!!\n", HRED );
             Thinking( "Formatting a hard drive", 5 );
             abort();
 
@@ -116,10 +117,10 @@ void COTexInput( struct Equation* Equ)
     Equ->c = COTexGetDouble( &CountOfMistakes );
 }
 
-void COTexOutput( struct Keys CompiledRoots )
+void COTexOutput( struct Keys* CompiledRoots )
 {
 
-    switch ( CompiledRoots.RootAmount )
+    switch ( CompiledRoots->RootAmount )
     {
         case INFINITY_ROOTS : /* infinity roots */
             printf( RED "Your equasion have infinity roots\n" reset );
@@ -130,11 +131,11 @@ void COTexOutput( struct Keys CompiledRoots )
             break;
 
         case ONE_ROOT : /* 1 root */
-            printf( BLU "Your equasion have only one root and it is %lf\n" reset, CompiledRoots.x1 );
+            printf( BLU "Your equasion have only one root and it is %lf\n" reset, CompiledRoots->x1 );
             break;
 
         case TWO_ROOTS : /* 2 roots */
-            printf(  HCYN " 2 roots\nx1 = %lf\n x2 = %lf\n" reset, CompiledRoots.x1, CompiledRoots.x2 );
+            printf(  HCYN " 2 roots\nx1 = %lf\n x2 = %lf\n" reset, CompiledRoots->x1, CompiledRoots->x2 );
             break;
 
         default: /* ERROR */
@@ -161,9 +162,9 @@ int COTexEquation( void )
         Thinking( "Initializing", 3 );
 
 
-        CompiledRoots.RootAmount = SquareSolve( Equ, &CompiledRoots );
+        CompiledRoots.RootAmount = SquareSolve( &Equ, &CompiledRoots );
         Thinking( "Calculating Roots", 6 );
-        COTexOutput( CompiledRoots );
+        COTexOutput( &CompiledRoots );
 
         printf( "Do you want to calculate again?\n(" HCYN );
         PrintAI(   "y",   GRN );

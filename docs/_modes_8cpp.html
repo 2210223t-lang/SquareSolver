@@ -128,8 +128,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac3a6d5a5f6f78f9218503cc01ff8c5a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getting equation's coefficients.  <br /></td></tr>
 <tr class="memitem:aff0781d9809b3cccb357ec402181c409" id="r_aff0781d9809b3cccb357ec402181c409"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aff0781d9809b3cccb357ec402181c409">GetKeys</a> (struct <a class="el" href="struct_keys.html">Keys</a> *Ans, FILE *InputStream)</td></tr>
 <tr class="memdesc:aff0781d9809b3cccb357ec402181c409"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getting correct answers for <a class="el" href="struct_equation.html" title="Stores Equation coefficents.">Equation</a> preset.  <br /></td></tr>
-<tr class="memitem:ae71b1c70bfb2e915e78b885b2bd42702" id="r_ae71b1c70bfb2e915e78b885b2bd42702"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ae71b1c70bfb2e915e78b885b2bd42702">CheckAnswer</a> (struct <a class="el" href="struct_equation.html">Equation</a> Test, struct <a class="el" href="struct_keys.html">Keys</a> Answers)</td></tr>
-<tr class="memdesc:ae71b1c70bfb2e915e78b885b2bd42702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checking correct answers with the results of working SquareSolve function.  <br /></td></tr>
+<tr class="memitem:ae0f5b662b6e82f9815274635cfb73754" id="r_ae0f5b662b6e82f9815274635cfb73754"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ae0f5b662b6e82f9815274635cfb73754">CheckAnswer</a> (struct <a class="el" href="struct_equation.html">Equation</a> *Test, struct <a class="el" href="struct_keys.html">Keys</a> *Answers)</td></tr>
+<tr class="memdesc:ae0f5b662b6e82f9815274635cfb73754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checking correct answers with the results of working SquareSolve function.  <br /></td></tr>
 <tr class="memitem:a70bf1a76f7c36305ae740fa207a4bbb2" id="r_a70bf1a76f7c36305ae740fa207a4bbb2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a70bf1a76f7c36305ae740fa207a4bbb2">UserCalc</a> (FILE *InputStream)</td></tr>
 <tr class="memdesc:a70bf1a76f7c36305ae740fa207a4bbb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starting common mode for user.  <br /></td></tr>
 <tr class="memitem:acb4a4f2826b4fa93130b33535dd66d63" id="r_acb4a4f2826b4fa93130b33535dd66d63"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#acb4a4f2826b4fa93130b33535dd66d63">ManualTest</a> (FILE *InputStream)</td></tr>
@@ -158,8 +158,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae71b1c70bfb2e915e78b885b2bd42702" name="ae71b1c70bfb2e915e78b885b2bd42702"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae71b1c70bfb2e915e78b885b2bd42702">&#9670;&#160;</a></span>CheckAnswer()</h2>
+<a id="ae0f5b662b6e82f9815274635cfb73754" name="ae0f5b662b6e82f9815274635cfb73754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f5b662b6e82f9815274635cfb73754">&#9670;&#160;</a></span>CheckAnswer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,12 +167,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int CheckAnswer </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="struct_equation.html">Equation</a></td>          <td class="paramname"><span class="paramname"><em>Test</em></span>, </td>
+          <td class="paramtype">struct <a class="el" href="struct_equation.html">Equation</a> *</td>          <td class="paramname"><span class="paramname"><em>Test</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct <a class="el" href="struct_keys.html">Keys</a></td>          <td class="paramname"><span class="paramname"><em>Answers</em></span>&#160;)</td>
+          <td class="paramtype">struct <a class="el" href="struct_keys.html">Keys</a> *</td>          <td class="paramname"><span class="paramname"><em>Answers</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -74,21 +74,24 @@ int GetKeys( struct Keys* Ans, FILE* InputStream )
  *
  * @return 1 if something went wrong and 0 if not
  */
-int CheckAnswer ( struct Equation Test, struct Keys Answers )
+int CheckAnswer ( struct Equation* Test, struct Keys* Answers )
 {
+    assert( Test );
+    assert( Answers );
+
     struct Keys CompiledRoots = { .x1 = NAN, .x2 = NAN };
 
     CompiledRoots.RootAmount = SquareSolve( Test, &CompiledRoots );
 
-    if ( !EqualsDouble( Answers.x1, CompiledRoots.x1 ) ||
-         !EqualsDouble( Answers.x2, CompiledRoots.x2 ) ||
-         !( Answers.RootAmount == CompiledRoots.RootAmount ) )
+    if ( !EqualsDouble( Answers->x1, CompiledRoots.x1 ) ||
+         !EqualsDouble( Answers->x2, CompiledRoots.x2 ) ||
+         !( Answers->RootAmount == CompiledRoots.RootAmount ) )
     {
         printf( RED "ERROR: a = %lf, b = %lf, c = %lf\n"
                     "Expected: x1 = %lf, x2 = %lf, RootAmount = %d\n"
                     "Result:   x1 = %lf, x2 = %lf, RootAmount = %d\n" reset,
-                    Test.a, Test.b, Test.c, Answers.x1, Answers.x2,
-                    Answers.RootAmount, CompiledRoots.x1, CompiledRoots.x2, CompiledRoots.RootAmount );
+                    Test->a, Test->b, Test->c, Answers->x1, Answers->x2,
+                    Answers->RootAmount, CompiledRoots.x1, CompiledRoots.x2, CompiledRoots.RootAmount );
         return 1;
     }
 
@@ -110,8 +113,8 @@ void UserCalc( FILE* InputStream)
 
         if ( KeepGoing == true )
         {
-            CompiledRoots.RootAmount = SquareSolve( Equ, &CompiledRoots );
-            Output( CompiledRoots );
+            CompiledRoots.RootAmount = SquareSolve( &Equ, &CompiledRoots );
+            Output( &CompiledRoots );
         }
 
         printf( "Do you want to calculate again?\n(" GRN "y" reset "/" RED "n" reset ")\n" );
@@ -130,7 +133,7 @@ int ManualTest ( FILE* InputStream )
 
     while ( GetEquation( &Preset, InputStream ) != EOF && GetKeys( &Answers, InputStream ) != EOF )
     {
-        MistakesCount += CheckAnswer( Preset, Answers );
+        MistakesCount += CheckAnswer( &Preset, &Answers );
     }
 
     return MistakesCount;
@@ -166,7 +169,7 @@ int AutoTest( void )
 
     for ( int i = 0; i < TestAmount; i++ )
     {
-        MistakesCount += CheckAnswer( TestPreset[ i ], Answers[ i ] );
+        MistakesCount += CheckAnswer( &TestPreset[ i ], &Answers[ i ] );
     }
     return MistakesCount;
 }

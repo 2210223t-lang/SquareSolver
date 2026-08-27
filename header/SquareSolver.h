@@ -14,7 +14,7 @@
  *         if   2 roots =  2
  *         if INF roots = -1
  */
-int SquareSolve( struct Equation Equ, struct Keys* CompiledRoots );
+int SquareSolve( struct Equation* Equ, struct Keys* CompiledRoots );
 
 /**
  * @brief Solves linear equation

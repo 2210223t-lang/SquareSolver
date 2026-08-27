@@ -1,7 +1,7 @@
 var searchData=
 [
   ['c_0',['c',['../struct_equation.html#a29cc5017c66525ee2adaa853653d1504',1,'Equation']]],
-  ['checkanswer_1',['CheckAnswer',['../_modes_8cpp.html#ae71b1c70bfb2e915e78b885b2bd42702',1,'Modes.cpp']]],
+  ['checkanswer_1',['CheckAnswer',['../_modes_8cpp.html#ae0f5b662b6e82f9815274635cfb73754',1,'Modes.cpp']]],
   ['checkcommand_2',['CheckCommand',['../_c_o_tex_getopt_8cpp.html#a6821e22a83dc9058d4018f7590ccb973',1,'COTexGetopt.cpp']]],
   ['colours_2eh_3',['Colours.h',['../_colours_8h.html',1,'']]],
   ['command_4',['Command',['../struct_c_o_tex_option.html#ae2763a02c824d7fcdd895c9f12e3bc48',1,'COTexOption']]],
@@ -21,7 +21,7 @@ var searchData=
   ['cotexinput_18',['COTexInput',['../_c_o_tex_equation_8cpp.html#a088a3afa4cbb1886c092fc3242f70aa0',1,'COTexInput(struct Equation *Equ):&#160;COTexEquation.cpp'],['../_c_o_tex_equation_8h.html#a088a3afa4cbb1886c092fc3242f70aa0',1,'COTexInput(struct Equation *Equ):&#160;COTexEquation.cpp']]],
   ['cotexoptarg_19',['COTexoptarg',['../_c_o_tex_getopt_8cpp.html#adc0d4c970c4700b824a8dd42973ada6e',1,'COTexoptarg:&#160;COTexGetopt.cpp'],['../_c_o_tex_getopt_8h.html#adc0d4c970c4700b824a8dd42973ada6e',1,'COTexoptarg:&#160;COTexGetopt.cpp']]],
   ['cotexoption_20',['COTexOption',['../struct_c_o_tex_option.html',1,'']]],
-  ['cotexoutput_21',['COTexOutput',['../_c_o_tex_equation_8cpp.html#a4201fed218231854a9e1b1bbed71916b',1,'COTexOutput(struct Keys CompiledRoots):&#160;COTexEquation.cpp'],['../_c_o_tex_equation_8h.html#a4201fed218231854a9e1b1bbed71916b',1,'COTexOutput(struct Keys CompiledRoots):&#160;COTexEquation.cpp']]],
+  ['cotexoutput_21',['COTexOutput',['../_c_o_tex_equation_8cpp.html#a5c9884490c36846b580c687bae9b8914',1,'COTexOutput(struct Keys *CompiledRoots):&#160;COTexEquation.cpp'],['../_c_o_tex_equation_8h.html#a4201fed218231854a9e1b1bbed71916b',1,'COTexOutput(struct Keys CompiledRoots):&#160;COTexEquation.h']]],
   ['cotexspeech_2eh_22',['COTexSpeech.h',['../_c_o_tex_speech_8h.html',1,'']]],
   ['cotexutility_2ecpp_23',['COTexUtility.cpp',['../_c_o_tex_utility_8cpp.html',1,'']]],
   ['cotexutility_2eh_24',['COTexUtility.h',['../_c_o_tex_utility_8h.html',1,'']]],

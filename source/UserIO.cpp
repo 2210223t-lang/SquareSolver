@@ -65,10 +65,10 @@ bool UserInput( FILE* IStream, struct Equation* Equ)
     return ( isnan( Equ->c ) ) ? false : true;
 }
 
-void Output( struct Keys CompiledRoots )
+void Output( struct Keys* CompiledRoots )
 {
 
-    switch ( CompiledRoots.RootAmount )
+    switch ( CompiledRoots->RootAmount )
     {
         case INFINITY_ROOTS : /* infinity roots */
             printf( RED "too many roots\n" reset );
@@ -79,11 +79,11 @@ void Output( struct Keys CompiledRoots )
             break;
 
         case ONE_ROOT : /* 1 root */
-            printf( GRN "1 root\nx1 = %lf\n" reset, CompiledRoots.x1 );
+            printf( GRN "1 root\nx1 = %lf\n" reset, CompiledRoots->x1 );
             break;
 
         case TWO_ROOTS : /* 2 roots */
-            printf( GRN " 2 roots\n x1 = %lf\n x2 = %lf\n" reset, CompiledRoots.x1, CompiledRoots.x2 );
+            printf( GRN " 2 roots\n x1 = %lf\n x2 = %lf\n" reset, CompiledRoots->x1, CompiledRoots->x2 );
             break;
 
         default: /* ERROR */

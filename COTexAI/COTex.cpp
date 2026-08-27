@@ -15,7 +15,7 @@ void KOTexStart( void )
 {
     srand( ( unsigned ) time( NULL ) );
     int Token = rand();
-    char Answer[10] = "1234";
+    char Answer[100] = "1234";
 
     Thinking( "Loading System", 4);
 

@@ -63,10 +63,10 @@ void TerminalCommands( int argc, char* argv[] )
                 break;
 
             case 'h' :
-                printf( "To start User Mode type -usermode\n"
-                        "To start Auto Test type -autotest\n"
-                        "To start Manual Test type -mantest\n"
-                        "To start AI mode type -COTexmode\n" );
+                printf( "To start User    Mode type -usermode\n"
+                        "To start Auto    Test type -autotest\n"
+                        "To start Manual  Test type -mantest\n"
+                        "To start AI      mode type -COTexmode\n" );
                 break;
 
             case '?' :

@@ -29,22 +29,23 @@ int LinearSolve( double b, double c, double* x1 )
     }
 }
 
-int SquareSolve( struct Equation Equ, struct Keys* CompiledRoots )
+int SquareSolve( struct Equation* Equ, struct Keys* CompiledRoots )
 {
     assert( CompiledRoots );
+    assert( Equ );
 
     CompiledRoots->x1 = NAN;
     CompiledRoots->x2 = NAN;
 
-    double Dis = Equ.b * Equ.b - 4 * Equ.a * Equ.c;
+    double Dis = Equ->b * Equ->b - 4 * Equ->a * Equ->c;
 
     if ( Dis < 0 )
     {
         return NO_ROOTS;
     }
-    else if ( EqualsDouble( Equ.a, 0 ) )
+    else if ( EqualsDouble( Equ->a, 0 ) )
     {
-        return LinearSolve( Equ.b, Equ.c, &( CompiledRoots->x1 ) );
+        return LinearSolve( Equ->b, Equ->c, &( CompiledRoots->x1 ) );
     }
     else
     {
@@ -52,13 +53,13 @@ int SquareSolve( struct Equation Equ, struct Keys* CompiledRoots )
 
         if ( EqualsDouble( Dis, 0 ) )
         {
-            CompiledRoots->x1 = ( -( Equ.b ) + DisSqrt ) / ( 2 * ( Equ.a ) );
+            CompiledRoots->x1 = ( -( Equ->b ) + DisSqrt ) / ( 2 * ( Equ->a ) );
             return ONE_ROOT;
         }
         else
         {
-            CompiledRoots->x1 = ( -( Equ.b ) - DisSqrt ) / ( 2 * ( Equ.a ) );
-            CompiledRoots->x2 = ( -( Equ.b ) + DisSqrt ) / ( 2 * ( Equ.a ) );
+            CompiledRoots->x1 = ( -( Equ->b ) - DisSqrt ) / ( 2 * ( Equ->a ) );
+            CompiledRoots->x2 = ( -( Equ->b ) + DisSqrt ) / ( 2 * ( Equ->a ) );
             if ( CompiledRoots->x1 > CompiledRoots->x2 ) SwapDouble( &( CompiledRoots->x1 ), &( CompiledRoots->x2 ) );
             return TWO_ROOTS;
         }

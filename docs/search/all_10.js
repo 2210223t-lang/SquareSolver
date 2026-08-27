@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['squaresolve_0',['SquareSolve',['../_square_solver_8h.html#a40ddf01f4cc47decbe1f093694d539ae',1,'SquareSolve(struct Equation Equ, struct Keys *CompiledRoots):&#160;SquareSolver.cpp'],['../_square_solver_8cpp.html#a40ddf01f4cc47decbe1f093694d539ae',1,'SquareSolve(struct Equation Equ, struct Keys *CompiledRoots):&#160;SquareSolver.cpp']]],
+  ['squaresolve_0',['SquareSolve',['../_square_solver_8h.html#a4b242827bf1596410344ce4e82bb66be',1,'SquareSolve(struct Equation *Equ, struct Keys *CompiledRoots):&#160;SquareSolver.cpp'],['../_square_solver_8cpp.html#a4b242827bf1596410344ce4e82bb66be',1,'SquareSolve(struct Equation *Equ, struct Keys *CompiledRoots):&#160;SquareSolver.cpp']]],
   ['squaresolver_2ecpp_1',['SquareSolver.cpp',['../_square_solver_8cpp.html',1,'']]],
   ['squaresolver_2eh_2',['SquareSolver.h',['../_square_solver_8h.html',1,'']]],
   ['structures_2eh_3',['Structures.h',['../_structures_8h.html',1,'']]],

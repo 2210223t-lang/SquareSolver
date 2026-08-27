@@ -18,6 +18,6 @@ bool UserInput( FILE* InputStream, struct Equation* Equ );
  *
  * @param CompiledRoots is a struct Keys, where from it takes values for output
  */
-void Output( struct Keys CompiledRoots );
+void Output( struct Keys* CompiledRoots );
 
 #endif //TRIAL_INITIALIZE_H
