@@ -15,7 +15,7 @@ enum ArgumentAmount
 };
 
 /**
- * @brief Custom copy of a standart option command from getopt.h
+ * @brief Custom copy of a standart option struct from getopt.h
  */
 struct COTexOption
 {

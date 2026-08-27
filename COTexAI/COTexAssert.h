@@ -1,12 +1,3 @@
-#ifdef nDEBUG_AI
-//TODO ask about realisatioin
-/**
- * @brief Turns of debug mode for COTexAssert
- */
-#define COTexAssert( condition ) continue;
-
-#endif
-
 #ifndef TRIAL_COTEXASSERT_H
 #define TRIAL_COTEXASSERT_H
 #include <stdlib.h>
@@ -18,7 +9,8 @@
  */
 #define COTexAssert( condition )                                           \
     do {                                                                   \
-        if ( !( condition ) ) {                                            \
+        if ( !( condition ) )                                              \
+        {                                                                  \
             fprintf( stderr, HRED                                          \
                 "\n"                                                       \
                 "====================================================\n"   \

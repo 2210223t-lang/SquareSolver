@@ -10,6 +10,7 @@ compile.sh
 data.txt
 asd.txt
 draft.cpp
+out
 # Editor-based HTTP Client requests
 /httpRequests/
 # Ignored default folder with query files

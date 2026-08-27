@@ -8,6 +8,8 @@
 #include "../COTexAI/COTexGetopt.h"
 #include "../header/UserMode.h"
 #include "../header/ManualMode.h"
+#include "../header/GraphicsMode.h"
+
 
 void TerminalCommands( int argc, char* argv[] )
 {
@@ -17,6 +19,7 @@ void TerminalCommands( int argc, char* argv[] )
                                           {  "autotest",      NO_ARGUMENTS, 0, 'a' },
                                           {   "mantest", OPTIONAL_ARGUMENT, 0, 'm' },
                                           {  "usermode", OPTIONAL_ARGUMENT, 0, 'u' },
+                                          {     "graph",      NO_ARGUMENTS, 0, 'g' },
                                           {      "help",      NO_ARGUMENTS, 0, 'h' },
                                           {           0,                 0, 0,  0  } };
     int Command = 0;
@@ -47,6 +50,10 @@ void TerminalCommands( int argc, char* argv[] )
                         "To start Auto    Test type -autotest\n"
                         "To start Manual  Test type -mantest\n"
                         "To start AI      mode type -COTexmode\n" );
+                break;
+
+            case 'g' :
+                RunGraphicsMode();
                 break;
 
             case '?' : /// Unknown command
