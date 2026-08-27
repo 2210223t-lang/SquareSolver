@@ -14,12 +14,13 @@
 void KOTexStart( void )
 {
     srand( ( unsigned ) time( NULL ) );
+
     int Token = rand();
     char Answer[100] = "1234";
 
     Thinking( "Loading System", 4);
 
-    PrintAI( "Hi, it's KOTex, I'm innovative Human-based AI, that can provide you with essential functions.\n", HCYN );
+    PrintAI( "Hi, it's KOTex, I'm innovative Human-based AI-assistant, that can provide you with essential functions.\n", HCYN );
     PrintAI( "Tokens' amount: ", BHRED );
     printf( BHRED "%d\n" reset, Token );
     PrintAIFunctions();
@@ -39,7 +40,7 @@ void KOTexStart( void )
     {
 
     }
-    else
+    else /// If user enterred incorrect keyword
     {
         PrintAI( "ERROR: Token shortage.\nToken needed to process you request: ", HRED );
         printf( HRED "%d\n" reset, Token + 1 );

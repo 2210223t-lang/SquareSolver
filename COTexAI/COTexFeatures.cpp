@@ -16,13 +16,15 @@ void COTexWeather( void )
     {
         case 0 :
             PrintAI( "Rain is expected tomorrow, don't forget an umbrela. \nExpected temperature is about: ", HCYN );
-            printf(  "%d celsium degrees", temp % 10 + 10 );
+            printf(  HCYN "%d", temp % 10 + 10 );
+            PrintAI( "celsium degrees", HCYN );
             break;
 
         case 1 :
             PrintAI( "A draught is expected tomorrow, avoid spending too much time outside. \n"
                      "Expected temperature is about: ", HCYN );
-            printf(  "%d celsium degrees", temp %  20 + 20);
+            printf( HCYN "%d", temp %  20 + 20);
+            PrintAI( "celsium degrees", HCYN );
             break;
 
         case 2 :

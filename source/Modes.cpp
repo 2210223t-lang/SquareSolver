@@ -98,6 +98,7 @@ int CheckAnswer ( struct Equation* Test, struct Keys* Answers )
     return 0;
 }
 
+
 void UserCalc( FILE* InputStream)
 {
     assert( InputStream );

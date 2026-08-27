@@ -16,7 +16,7 @@
 /**
  * @brief Prints special sentence for every remaining amount of mistakes
  *
- * @param[ in ] MistakesAmount int MistakesAmount shows remaining amount of mistakes
+ * @param[ in ] MistakesAmount int* MistakesAmount shows remaining amount of mistakes
  *
  * @details When MistakesAmount == 0, it tells a user that it shots down and closing code
  */
@@ -82,13 +82,18 @@ double COTexGetDouble( int* MistakesAmount )
 
     Thinking( "Initializing", 3 );
 
-    while ( *MistakesAmount > 0 && ( Ch != '\n' || InputAmount == 0 ) )
+    /// Checks if there are attempts left and that word is double
+    while ( ( *MistakesAmount > 0 && ( Ch != '\n' || InputAmount == 0 ) ) || ( !isfinite( Value ) ) )
     {
          --( *MistakesAmount );
 
-        printf( "\"" HRED "%c" reset, Ch );
-
-        while ( ( Ch = getchar() ) != '\n' ) printf( HRED "%c" reset, Ch );
+        putchar( '\"');
+        if( !isfinite( Value ) ) printf( HRED "%lf" reset, Value );
+        if( Ch != '\n' )
+        {
+            printf( HRED "%c" reset, Ch );
+            while ( ( Ch = getchar() ) != '\n' ) printf( HRED "%c" reset, Ch );
+        }
 
         MistakesReaction( MistakesAmount );
 
@@ -159,7 +164,6 @@ int COTexEquation( void )
     while ( Repeat == 'y' )
     {
         COTexInput( &Equ );
-        Thinking( "Initializing", 3 );
 
 
         CompiledRoots.RootAmount = SquareSolve( &Equ, &CompiledRoots );
@@ -169,9 +173,10 @@ int COTexEquation( void )
         printf( "Do you want to calculate again?\n(" HCYN );
         PrintAI(   "y",   GRN );
         PrintAI(   "/",  HCYN );
-        PrintAI( "n\n",   RED );
+        PrintAI( "n",   RED );
         PrintAI(   ")",  HCYN );
         scanf( "%c", &Repeat );
+        Thinking( "Kumekay", 3 );
         if ( Repeat != 'y' && Repeat != 'n')
         {
             PrintAI( "You even can't enter a correct answer, "

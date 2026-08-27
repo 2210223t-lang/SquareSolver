@@ -71,7 +71,7 @@ void Output( struct Keys* CompiledRoots )
     switch ( CompiledRoots->RootAmount )
     {
         case INFINITY_ROOTS : /* infinity roots */
-            printf( RED "too many roots\n" reset );
+            printf( RED "Too many roots\n" reset );
             break;
 
         case NO_ROOTS : /* no roots */
@@ -83,7 +83,7 @@ void Output( struct Keys* CompiledRoots )
             break;
 
         case TWO_ROOTS : /* 2 roots */
-            printf( GRN " 2 roots\n x1 = %lf\n x2 = %lf\n" reset, CompiledRoots->x1, CompiledRoots->x2 );
+            printf( GRN "2 roots\nx1 = %lf\nx2 = %lf\n" reset, CompiledRoots->x1, CompiledRoots->x2 );
             break;
 
         default: /* ERROR */
