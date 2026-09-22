@@ -1,27 +1,30 @@
 #include <stdio.h>
 #include <math.h>
+
 #include "raylib.h"
 
 #include "../header/GraphicsIO.h"
 
-enum ScreemParameters
+/// Sets size of displayed screen
+enum ScreenParameters
 {
     SCREEN_WIDTH = 1000, ///< Screen width
     SCREEN_LENGHT = 800 ///< Screen lenght
 };
-const float WIDTH_LIMIT = 1000000.0f; ///< Width limit of calculating area
-const float HEIGHT_LIMIT = 1000000.0f; ///< Height limit of calculating area
+
+const float WIDTH_LIMIT = 1000000; ///< Width limit of calculating area
+const float HEIGHT_LIMIT = 1000000.; ///< Height limit of calculating area
 
 /// Equation struct with float variables
-struct EquationGraph
+struct EquationFloat
 {
-float a;
-float b;
-float c;
+    float a;
+    float b;
+    float c;
 };
 
 
-float GetY( EquationGraph* Equ, float x )
+float GetY( EquationFloat* Equ, float x )
 {
     return ( x * x * (Equ->a) + x * (Equ->b) + Equ->c );
 }
@@ -34,7 +37,7 @@ bool EqualsFloat( float a, float b )
 /// Distance between painted points
 const float PAINT_STEP = 0.1f;
 
-void PrintGraphic( EquationGraph* Equ )
+void PrintGraphic( EquationFloat* Equ )
 {
     Equ->a = -Equ->a;
     Equ->b = -Equ->b;
@@ -58,7 +61,7 @@ void PrintGraphic( EquationGraph* Equ )
         struct Vector2 Leftprev = LeftPoint, Rightprev = RightPoint;
         float xDiff = 0;
         float yDiff = 0;
-        while ( RightPoint.x <= WIDTH_LIMIT && RightPoint.y <= HEIGHT_LIMIT )
+        while ( fabs( RightPoint.x + CenterPosition.x ) <= SCREEN_WIDTH && fabs( RightPoint.y + CenterPosition.y ) <= SCREEN_LENGHT )
         {
             DrawLineV( RightPoint, Rightprev, BLUE );
             DrawLineV(  LeftPoint,  Leftprev, BLUE );
@@ -95,9 +98,8 @@ void PrintGraphic( EquationGraph* Equ )
 
 void RunGraphicsMode()
 {
-    struct EquationGraph Equ = {};
+    struct EquationFloat Equ = {};
 
-    printf( " NB!!! To see graph, after running this code, print ./out into terminal\n" );
     GraphInput( &Equ );
-
+    PrintGraphic( &Equ );
 }

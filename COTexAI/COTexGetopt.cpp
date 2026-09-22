@@ -4,7 +4,6 @@
 #include "COTexGetoptUtility.h"
 
 
-
 /**
  * @brief Custom copy of a standart option command from getopt.h
  */
@@ -44,6 +43,7 @@ bool CheckCommand( char* Command, const char* Flag )
 }
 
 char* COTexoptarg = 0; ///< Custom analogue of a standart optarg variable
+int COTexoptind = 0; ///< Custom analogue of a standart optind variable
 
 int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_options, int* index )
 {
@@ -91,6 +91,7 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
                         {
                             number++;
                             COTexoptarg = argv[ number ];
+                            COTexoptind = number;
 
                             if ( *long_options->flag )
                             {
@@ -119,7 +120,7 @@ int COTexGetopt_long_only( int argc, char* argv[], struct COTexOption* long_opti
                         {
                             number++;
                             COTexoptarg = argv[ number ];
-
+                            COTexoptind = number;
                             if ( long_options->flag ) ///< There is a pointer to a variable to store flag
                             {
                                 number++;

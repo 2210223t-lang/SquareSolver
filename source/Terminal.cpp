@@ -19,7 +19,7 @@ void TerminalCommands( int argc, char* argv[] )
                                           {  "autotest",      NO_ARGUMENTS, 0, 'a' },
                                           {   "mantest", OPTIONAL_ARGUMENT, 0, 'm' },
                                           {  "usermode", OPTIONAL_ARGUMENT, 0, 'u' },
-                                          {     "graph",      NO_ARGUMENTS, 0, 'g' },
+                                          {  "graphics",      NO_ARGUMENTS, 0, 'g' },
                                           {      "help",      NO_ARGUMENTS, 0, 'h' },
                                           {           0,                 0, 0,  0  } };
     int Command = 0;
@@ -45,15 +45,15 @@ void TerminalCommands( int argc, char* argv[] )
                 RunUserMode( COTexoptarg );
                 break;
 
+             case 'g' :
+                 RunGraphicsMode();
+                 break;
+
             case 'h' : /// Help
                 printf( "To start User    Mode type -usermode\n"
                         "To start Auto    Test type -autotest\n"
                         "To start Manual  Test type -mantest\n"
                         "To start AI      mode type -COTexmode\n" );
-                break;
-
-            case 'g' :
-                RunGraphicsMode();
                 break;
 
             case '?' : /// Unknown command

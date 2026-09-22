@@ -4,7 +4,7 @@
 
 #include "../header/Colours.h"
 
-struct EquationGraph
+struct EquationFloat
 {
 float a;
 float b;
@@ -45,7 +45,7 @@ float GetFloat( int* CountOfMistakes )
     return Value;
 }
 
-bool GraphInput( struct EquationGraph* Equ )
+bool GraphInput( struct EquationFloat* Equ )
 {
     assert( Equ );
 

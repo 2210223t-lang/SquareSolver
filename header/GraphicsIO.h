@@ -4,6 +4,6 @@
 #include <stdio.h>
 
 
-bool GraphInput( struct EquationGraph* Equ );
+bool GraphInput( struct EquationFloat* Equ );
 
 #endif // TRIAL_GRAPHICSIO_H
